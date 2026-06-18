@@ -1,6 +1,15 @@
 // Lógica del editor interactivo UNSAM Email Builder
 import { BASE_LAYOUT, BLOCK_TEMPLATES, DEFAULT_TEMPLATES } from './templates.js';
 
+// Paleta de Colores Institucionales (Organizada por columnas en grilla de 4)
+const INSTITUTIONAL_COLORS = [
+  '#974594', '#6a3189', '#575ea7', '#254194', // Fila 1
+  '#b04b96', '#854091', '#6674b6', '#385da8', // Fila 2
+  '#c56aa7', '#9277b4', '#788dc6', '#647bbc', // Fila 3
+  '#c78ebe', '#afa2ce', '#96a8d5', '#8ca2d3', // Fila 4
+  '#dfcce3', '#d3d1e8', '#c6d5ed', '#c6d5ed'  // Fila 5
+];
+
 // ESTADO GLOBAL DE LA APLICACIÓN
 let state = {
   currentTemplateId: 'finanzas_abiertas',
@@ -487,6 +496,35 @@ function renderEditor() {
 
   dynamicBlockForm.innerHTML = '';
 
+  // Helper para renderizar la paleta de colores institucional
+  function renderColorPalette(key, currentValue) {
+    const normalizedCurrent = (currentValue || '').toLowerCase();
+    
+    let gridHtml = '<div class="grid grid-cols-4 gap-1.5 mb-2 mt-1">';
+    INSTITUTIONAL_COLORS.forEach(color => {
+      const isSelected = normalizedCurrent === color.toLowerCase();
+      gridHtml += `
+        <button type="button" 
+                data-color-btn="${color}" 
+                data-key="${key}" 
+                style="background-color: ${color};" 
+                class="w-full aspect-square rounded border ${isSelected ? 'border-unsamPink scale-105 shadow shadow-unsamPink/50 ring-2 ring-unsamPink' : 'border-editorBorder hover:border-slate-400'} transition-all active:scale-95"
+                title="${color}">
+        </button>
+      `;
+    });
+    gridHtml += '</div>';
+
+    gridHtml += `
+      <div class="flex items-center space-x-2">
+        <input type="text" data-key="${key}" value="${escapeHtml(currentValue)}" placeholder="#ffffff" class="w-full bg-editorDark border border-editorBorder hover:border-slate-500 focus:border-unsamPink text-slate-200 text-[11px] rounded px-2.5 py-1 outline-none transition-colors">
+        <input type="color" data-color-picker="${key}" value="${normalizedCurrent.startsWith('#') && normalizedCurrent.length === 7 ? normalizedCurrent : '#ffffff'}" class="w-8 h-7 rounded border border-editorBorder bg-transparent cursor-pointer p-0">
+      </div>
+    `;
+    
+    return gridHtml;
+  }
+
   // 11.A Renderizar los inputs comunes definidos en el schema
   Object.keys(tplConfig.schema).forEach(key => {
     const field = tplConfig.schema[key];
@@ -502,6 +540,8 @@ function renderEditor() {
     } else if (field.type === 'select') {
       const optionsHtml = field.options.map(opt => `<option value="${opt}" ${value === opt ? 'selected' : ''}>${opt.toUpperCase()}</option>`).join('');
       inputHtml = `<select data-key="${key}" class="w-full bg-editorDarkLighter border border-editorBorder text-slate-200 text-xs rounded-lg px-3 py-2 outline-none cursor-pointer">${optionsHtml}</select>`;
+    } else if (field.type === 'color') {
+      inputHtml = renderColorPalette(key, value);
     }
 
     wrapper.innerHTML = `
@@ -509,18 +549,51 @@ function renderEditor() {
       ${inputHtml}
     `;
 
-    // Vincular evento de actualización
-    const inputElement = wrapper.querySelector('input, textarea, select');
-    inputElement.addEventListener('input', (e) => {
-      block.data[key] = e.target.value;
-      
-      // Si es la cabecera o cambia el title, sincronizar el title
-      if (block.type === 'header' && key === 'headerImageAlt') {
-        state.emailTitle = e.target.value;
-      }
-      
-      debounceRender();
-    });
+    // Vincular eventos de actualización
+    if (field.type === 'color') {
+      // Registrar evento para los botones de la paleta
+      const buttons = wrapper.querySelectorAll('[data-color-btn]');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const selectedColor = e.currentTarget.dataset.colorBtn;
+          block.data[key] = selectedColor;
+          debounceRender();
+          renderEditor(); // Volver a pintar para reflejar selección
+        });
+      });
+
+      // Registrar evento para el input de texto manual
+      const textInput = wrapper.querySelector(`input[data-key="${key}"]`);
+      textInput.addEventListener('input', (e) => {
+        block.data[key] = e.target.value;
+        const picker = wrapper.querySelector(`[data-color-picker="${key}"]`);
+        if (e.target.value.startsWith('#') && e.target.value.length === 7) {
+          picker.value = e.target.value;
+        }
+        debounceRender();
+      });
+
+      // Registrar evento para el picker nativo
+      const colorPicker = wrapper.querySelector(`[data-color-picker="${key}"]`);
+      colorPicker.addEventListener('input', (e) => {
+        block.data[key] = e.target.value;
+        textInput.value = e.target.value;
+        debounceRender();
+      });
+    } else {
+      // Vincular evento de actualización estándar para otros tipos
+      const inputElement = wrapper.querySelector('input, textarea, select');
+      inputElement.addEventListener('input', (e) => {
+        block.data[key] = e.target.value;
+        
+        // Si es la cabecera o cambia el title, sincronizar el title
+        if (block.type === 'header' && key === 'headerImageAlt') {
+          state.emailTitle = e.target.value;
+        }
+        
+        debounceRender();
+      });
+    }
 
     dynamicBlockForm.appendChild(wrapper);
   });

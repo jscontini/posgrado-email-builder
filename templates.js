@@ -56,13 +56,14 @@ export const BLOCK_TEMPLATES = {
     name: "Saludo e Introducción",
     schema: {
       saludo: { type: "text", label: "Saludo" },
+      saludoColor: { type: "color", label: "Color del Saludo" },
       introText: { type: "textarea", label: "Texto de Introducción (HTML permitido)" }
     },
     render: (data) => `
       <!-- Introducción y Saludo -->
       <tr>
         <td style="padding: 40px 40px 25px 40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-          <div style="font-size: 16px; color: #254194; font-weight: 600; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <div style="font-size: 16px; color: ${data.saludoColor || '#254194'}; font-weight: 600; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
             ${data.saludo}
           </div>
           <div style="margin-bottom: 0; text-align: justify; color: #475569; font-size: 15px; line-height: 1.6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
@@ -110,6 +111,7 @@ export const BLOCK_TEMPLATES = {
     name: "Información General y Cursada",
     schema: {
       sectionTitle: { type: "text", label: "Título de Sección" },
+      titleColor: { type: "color", label: "Color de Título de Sección" },
       card1Label: { type: "text", label: "Ficha 1 - Etiqueta" },
       card1Value: { type: "text", label: "Ficha 1 - Valor Principal" },
       card1Text: { type: "textarea", label: "Ficha 1 - Descripción" },
@@ -119,13 +121,15 @@ export const BLOCK_TEMPLATES = {
       card3Label: { type: "text", label: "Ficha Horarios - Etiqueta" },
       card3Bullet1: { type: "text", label: "Horario - Viñeta 1 (HTML permitido)" },
       card3Bullet2: { type: "text", label: "Horario - Viñeta 2 (HTML permitido)" },
-      card3Footer: { type: "text", label: "Horario - Aclaración Final" }
+      card3Footer: { type: "text", label: "Horario - Aclaración Final" },
+      cardLabelColor: { type: "color", label: "Color de Etiquetas" },
+      cardValueColor: { type: "color", label: "Color de Valores Principales" }
     },
     render: (data) => `
       <!-- Información General y Cursada -->
       <tr>
         <td style="padding: 0 40px 30px 40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-          <div style="font-size: 18px; color: #6a3189; font-weight: 700; border-bottom: 2px solid #c6d5ed; padding-bottom: 8px; margin-bottom: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <div style="font-size: 18px; color: ${data.titleColor || '#6a3189'}; font-weight: 700; border-bottom: 2px solid #c6d5ed; padding-bottom: 8px; margin-bottom: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
             ${data.sectionTitle}
           </div>
 
@@ -134,10 +138,10 @@ export const BLOCK_TEMPLATES = {
             <tr>
               <!-- Columna 1 -->
               <td width="48%" valign="top" style="background-color: #f5f7fb; border: 1px solid #c6d5ed; border-radius: 6px; padding: 16px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                <div style="font-size: 11px; font-weight: bold; color: #974594; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                <div style="font-size: 11px; font-weight: bold; color: ${data.cardLabelColor || '#974594'}; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                   ${data.card1Label}
                 </div>
-                <div style="font-size: 15px; font-weight: bold; color: #254194; margin-bottom: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                <div style="font-size: 15px; font-weight: bold; color: ${data.cardValueColor || '#254194'}; margin-bottom: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                   ${data.card1Value}
                 </div>
                 <div style="font-size: 13px; color: #475569; line-height: 1.4; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
@@ -150,10 +154,10 @@ export const BLOCK_TEMPLATES = {
 
               <!-- Columna 2 -->
               <td width="48%" valign="top" style="background-color: #f5f7fb; border: 1px solid #c6d5ed; border-radius: 6px; padding: 16px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                <div style="font-size: 11px; font-weight: bold; color: #974594; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                <div style="font-size: 11px; font-weight: bold; color: ${data.cardLabelColor || '#974594'}; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                   ${data.card2Label}
                 </div>
-                <div style="font-size: 15px; font-weight: bold; color: #254194; margin-bottom: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                <div style="font-size: 15px; font-weight: bold; color: ${data.cardValueColor || '#254194'}; margin-bottom: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                   ${data.card2Value}
                 </div>
                 <div style="font-size: 13px; color: #475569; line-height: 1.4; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
@@ -167,18 +171,18 @@ export const BLOCK_TEMPLATES = {
           <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse: separate;">
             <tr>
               <td style="background-color: #f5f7fb; border: 1px solid #c6d5ed; border-radius: 6px; padding: 16px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                <div style="font-size: 11px; font-weight: bold; color: #974594; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                <div style="font-size: 11px; font-weight: bold; color: ${data.cardLabelColor || '#974594'}; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                   ${data.card3Label}
                 </div>
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
-                    <td width="5%" valign="top" style="color: #254194; font-weight: bold; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">&bull;</td>
+                    <td width="5%" valign="top" style="color: ${data.cardValueColor || '#254194'}; font-weight: bold; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">&bull;</td>
                     <td width="95%" style="font-size: 13px; color: #475569; padding-bottom: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                       ${data.card3Bullet1}
                     </td>
                   </tr>
                   <tr>
-                    <td width="5%" valign="top" style="color: #254194; font-weight: bold; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">&bull;</td>
+                    <td width="5%" valign="top" style="color: ${data.cardValueColor || '#254194'}; font-weight: bold; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">&bull;</td>
                     <td width="95%" style="font-size: 13px; color: #475569; padding-bottom: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                       ${data.card3Bullet2}
                     </td>
@@ -198,7 +202,9 @@ export const BLOCK_TEMPLATES = {
     name: "Perfil del Destinatario (GETEC)",
     schema: {
       sectionTitle: { type: "text", label: "Título de Sección" },
+      titleColor: { type: "color", label: "Color de Título de Sección" },
       introText: { type: "textarea", label: "Texto de Introducción" },
+      bulletColor: { type: "color", label: "Color de Viñetas" },
       item1Title: { type: "text", label: "Item 1 - Negrita" },
       item1Text: { type: "textarea", label: "Item 1 - Cuerpo" },
       item2Title: { type: "text", label: "Item 2 - Negrita" },
@@ -214,7 +220,7 @@ export const BLOCK_TEMPLATES = {
       <!-- ¿A quién está dirigido? -->
       <tr>
         <td style="padding: 0 40px 30px 40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-          <div style="font-size: 18px; color: #6a3189; font-weight: 700; border-bottom: 2px solid #c6d5ed; padding-bottom: 8px; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <div style="font-size: 18px; color: ${data.titleColor || '#6a3189'}; font-weight: 700; border-bottom: 2px solid #c6d5ed; padding-bottom: 8px; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
             ${data.sectionTitle}
           </div>
           <div style="font-size: 14px; color: #475569; text-align: justify; line-height: 1.6; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
@@ -225,23 +231,23 @@ export const BLOCK_TEMPLATES = {
               <td style="font-size: 13.5px; color: #475569; line-height: 1.6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
-                    <td width="20" valign="top" style="color: #6a3189; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
+                    <td width="20" valign="top" style="color: ${data.bulletColor || '#6a3189'}; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
                     <td valign="top" style="padding: 2px 0 6px 0;"><strong>${data.item1Title}</strong> ${data.item1Text}</td>
                   </tr>
                   <tr>
-                    <td width="20" valign="top" style="color: #6a3189; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
+                    <td width="20" valign="top" style="color: ${data.bulletColor || '#6a3189'}; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
                     <td valign="top" style="padding: 2px 0 6px 0;"><strong>${data.item2Title}</strong> ${data.item2Text}</td>
                   </tr>
                   <tr>
-                    <td width="20" valign="top" style="color: #6a3189; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
+                    <td width="20" valign="top" style="color: ${data.bulletColor || '#6a3189'}; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
                     <td valign="top" style="padding: 2px 0 6px 0;"><strong>${data.item3Title}</strong> ${data.item3Text}</td>
                   </tr>
                   <tr>
-                    <td width="20" valign="top" style="color: #6a3189; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
+                    <td width="20" valign="top" style="color: ${data.bulletColor || '#6a3189'}; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
                     <td valign="top" style="padding: 2px 0 6px 0;"><strong>${data.item4Title}</strong> ${data.item4Text}</td>
                   </tr>
                   <tr>
-                    <td width="20" valign="top" style="color: #6a3189; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
+                    <td width="20" valign="top" style="color: ${data.bulletColor || '#6a3189'}; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
                     <td valign="top" style="padding: 2px 0 6px 0;"><strong>${data.item5Title}</strong> ${data.item5Text}</td>
                   </tr>
                 </table>
@@ -256,13 +262,14 @@ export const BLOCK_TEMPLATES = {
     name: "Sobre la Carrera / Programa",
     schema: {
       sectionTitle: { type: "text", label: "Título de Sección" },
+      titleColor: { type: "color", label: "Color de Título de Sección" },
       descriptionText: { type: "textarea", label: "Descripción (HTML permitido)" }
     },
     render: (data) => `
       <!-- Propósito y Enfoque -->
       <tr>
         <td style="padding: 0 40px 30px 40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-          <div style="font-size: 18px; color: #6a3189; font-weight: 700; border-bottom: 2px solid #c6d5ed; padding-bottom: 8px; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <div style="font-size: 18px; color: ${data.titleColor || '#6a3189'}; font-weight: 700; border-bottom: 2px solid #c6d5ed; padding-bottom: 8px; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
             ${data.sectionTitle}
           </div>
           <div style="font-size: 14px; color: #475569; text-align: justify; line-height: 1.6; margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
@@ -276,6 +283,7 @@ export const BLOCK_TEMPLATES = {
     name: "Admisión y Requisitos",
     schema: {
       sectionTitle: { type: "text", label: "Título de Sección" },
+      titleColor: { type: "color", label: "Color de Título de Sección" },
       admissionCondition: { type: "textarea", label: "Condición de Admisión (HTML permitido)" },
       requirementsTitle: { type: "text", label: "Título de Lista de Requisitos" },
       doc1: { type: "text", label: "Documento 1" },
@@ -287,7 +295,10 @@ export const BLOCK_TEMPLATES = {
       doc7: { type: "text", label: "Documento 7" },
       doc8: { type: "text", label: "Documento 8" },
       extraInfoTitle: { type: "text", label: "Título Alerta de Títulos Extranjeros" },
-      extraInfoText: { type: "textarea", label: "Texto Alerta de Títulos Extranjeros (HTML permitido)" }
+      extraInfoText: { type: "textarea", label: "Texto Alerta de Títulos Extranjeros (HTML permitido)" },
+      alertBgColor: { type: "color", label: "Color de Fondo de Alerta" },
+      alertBorderColor: { type: "color", label: "Color de Borde de Alerta" },
+      alertTitleColor: { type: "color", label: "Color del Título de Alerta" }
     },
     render: (data) => {
       const docs = [data.doc1, data.doc2, data.doc3, data.doc4, data.doc5, data.doc6, data.doc7, data.doc8].filter(Boolean);
@@ -304,7 +315,7 @@ export const BLOCK_TEMPLATES = {
       <!-- Requisitos de Admisión y Documentación -->
       <tr>
         <td style="padding: 0 40px 30px 40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-          <div style="font-size: 18px; color: #6a3189; font-weight: 700; border-bottom: 2px solid #c6d5ed; padding-bottom: 8px; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <div style="font-size: 18px; color: ${data.titleColor || '#6a3189'}; font-weight: 700; border-bottom: 2px solid #c6d5ed; padding-bottom: 8px; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
             ${data.sectionTitle}
           </div>
 
@@ -312,7 +323,7 @@ export const BLOCK_TEMPLATES = {
             ${data.admissionCondition}
           </div>
 
-          <div style="font-size: 14px; font-weight: bold; color: #6a3189; margin-bottom: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <div style="font-size: 14px; font-weight: bold; color: ${data.titleColor || '#6a3189'}; margin-bottom: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
             ${data.requirementsTitle}
           </div>
 
@@ -327,10 +338,10 @@ export const BLOCK_TEMPLATES = {
           </table>
 
           <!-- Cuadro Alerta de Títulos Extranjeros -->
-          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #dfcce3; border-left: 4px solid #974594; border-radius: 4px; border-collapse: separate;">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: ${data.alertBgColor || '#dfcce3'}; border-left: 4px solid ${data.alertBorderColor || '#974594'}; border-radius: 4px; border-collapse: separate;">
             <tr>
               <td style="padding: 15px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                <div style="font-weight: 700; color: #6a3189; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                <div style="font-weight: 700; color: ${data.alertTitleColor || '#6a3189'}; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                   ${data.extraInfoTitle}
                 </div>
                 <div style="color: #475569; font-size: 13px; line-height: 1.5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
@@ -348,6 +359,10 @@ export const BLOCK_TEMPLATES = {
     name: "Plan de Estudio y Carga Horaria",
     schema: {
       sectionTitle: { type: "text", label: "Título de Sección" },
+      titleColor: { type: "color", label: "Color de Título de Sección" },
+      headerBgColor: { type: "color", label: "Fondo de Encabezado Tabla" },
+      groupBgColor: { type: "color", label: "Fondo de Áreas" },
+      groupTextColor: { type: "color", label: "Texto de Áreas" },
       totalHoursText: { type: "text", label: "Texto Total Horas" },
       totalHoursValue: { type: "text", label: "Valor Total Horas" },
       totalCreditsValue: { type: "text", label: "Valor Total Créditos" }
@@ -377,20 +392,20 @@ export const BLOCK_TEMPLATES = {
 
         return `
           <!-- GRUPO: ${area.name} -->
-          <tr style="background-color: #c6d5ed; color: #254194; font-weight: bold; font-size: 11px;">
-            <td colspan="5" style="padding: 8px 10px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #96a8d5; border-top: 1px solid #96a8d5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <tr style="background-color: ${data.groupBgColor || '#c6d5ed'}; color: ${data.groupTextColor || '#254194'}; font-weight: bold; font-size: 11px;">
+            <td colspan="5" style="padding: 8px 10px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid ${data.groupBgColor || '#96a8d5'}; border-top: 1px solid ${data.groupBgColor || '#96a8d5'}; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
               ${area.name}
             </td>
           </tr>
           ${subjectsHtml}
-          <tr style="font-size: 11px; font-weight: bold; color: #575ea7; background-color: #f5f7fb;">
-            <td colspan="3" align="right" style="padding: 6px 10px; border-bottom: 1px solid #96a8d5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <tr style="font-size: 11px; font-weight: bold; color: ${data.groupTextColor || '#575ea7'}; background-color: #f5f7fb;">
+            <td colspan="3" align="right" style="padding: 6px 10px; border-bottom: 1px solid ${data.groupBgColor || '#96a8d5'}; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
               ${area.totalLabel}
             </td>
-            <td align="center" style="padding: 6px 10px; border-bottom: 1px solid #96a8d5; font-weight: bold; color: #254194; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+            <td align="center" style="padding: 6px 10px; border-bottom: 1px solid ${data.groupBgColor || '#96a8d5'}; font-weight: bold; color: ${data.groupTextColor || '#254194'}; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
               ${area.totalHours}
             </td>
-            <td align="center" style="padding: 6px 10px; border-bottom: 1px solid #96a8d5; font-weight: bold; color: #254194; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+            <td align="center" style="padding: 6px 10px; border-bottom: 1px solid ${data.groupBgColor || '#96a8d5'}; font-weight: bold; color: ${data.groupTextColor || '#254194'}; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
               ${area.totalCredits}
             </td>
           </tr>
@@ -401,13 +416,13 @@ export const BLOCK_TEMPLATES = {
       <!-- Plan de Estudios y Carga Horaria -->
       <tr>
         <td style="padding: 0 40px 30px 40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-          <div style="font-size: 18px; color: #6a3189; font-weight: 700; border-bottom: 2px solid #c6d5ed; padding-bottom: 8px; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <div style="font-size: 18px; color: ${data.titleColor || '#6a3189'}; font-weight: 700; border-bottom: 2px solid #c6d5ed; padding-bottom: 8px; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
             ${data.sectionTitle}
           </div>
 
-          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border: 1px solid #96a8d5; border-radius: 4px; overflow: hidden; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border: 1px solid ${data.groupBgColor || '#96a8d5'}; border-radius: 4px; overflow: hidden; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
             <!-- Encabezados Tabla -->
-            <tr style="background-color: #254194; color: #ffffff; font-weight: bold; font-size: 12px;">
+            <tr style="background-color: ${data.headerBgColor || '#254194'}; color: #ffffff; font-weight: bold; font-size: 12px;">
               <td style="padding: 8px 10px; font-weight: bold; border-bottom: 1.5px solid #974594; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                 Cód. / Asignatura
               </td>
@@ -428,7 +443,7 @@ export const BLOCK_TEMPLATES = {
             ${areasRows}
 
             <!-- RESUMEN TOTAL -->
-            <tr style="background-color: #254194; color: #ffffff; font-weight: bold; font-size: 13px;">
+            <tr style="background-color: ${data.headerBgColor || '#254194'}; color: #ffffff; font-weight: bold; font-size: 13px;">
               <td colspan="3" align="right" style="padding: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                 ${data.totalHoursText}
               </td>
@@ -449,6 +464,7 @@ export const BLOCK_TEMPLATES = {
     name: "Aranceles y Medios de Pago",
     schema: {
       sectionTitle: { type: "text", label: "Título de Sección" },
+      titleColor: { type: "color", label: "Color de Título de Sección" },
       residentTitle: { type: "text", label: "Residentes - Título" },
       residentCuotas: { type: "text", label: "Residentes - Cuotas" },
       residentMonto: { type: "text", label: "Residentes - Monto" },
@@ -457,6 +473,9 @@ export const BLOCK_TEMPLATES = {
       nonResidentCuotas: { type: "text", label: "Extranjeros - Cuotas" },
       nonResidentMonto: { type: "text", label: "Extranjeros - Monto" },
       nonResidentObs: { type: "text", label: "Extranjeros - Observación" },
+      cardLabelColor: { type: "color", label: "Color de Etiquetas" },
+      cardValueColor: { type: "color", label: "Color de Cuotas" },
+      montoColor: { type: "color", label: "Color del Monto" },
       discountText: { type: "textarea", label: "Beneficios y Descuentos (HTML permitido)" },
       paymentText: { type: "textarea", label: "Medios de Pago (HTML permitido)" }
     },
@@ -464,7 +483,7 @@ export const BLOCK_TEMPLATES = {
       <!-- Aranceles y Medios de Pago -->
       <tr>
         <td style="padding: 0 40px 30px 40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-          <div style="font-size: 18px; color: #6a3189; font-weight: 700; border-bottom: 2px solid #c6d5ed; padding-bottom: 8px; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <div style="font-size: 18px; color: ${data.titleColor || '#6a3189'}; font-weight: 700; border-bottom: 2px solid #c6d5ed; padding-bottom: 8px; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
             ${data.sectionTitle}
           </div>
 
@@ -475,14 +494,14 @@ export const BLOCK_TEMPLATES = {
                   <tr>
                     <!-- Columna Residentes -->
                     <td width="48%" valign="top" style="border-right: 1px solid #c6d5ed; padding-right: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                      <div style="font-size: 11px; font-weight: bold; color: #575ea7; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                      <div style="font-size: 11px; font-weight: bold; color: ${data.cardLabelColor || '#575ea7'}; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                         ${data.residentTitle}
                       </div>
-                      <div style="font-size: 15px; font-weight: bold; color: #254194; margin-bottom: 4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                      <div style="font-size: 15px; font-weight: bold; color: ${data.cardValueColor || '#254194'}; margin-bottom: 4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                         ${data.residentCuotas}
                       </div>
-                      <div style="font-size: 18px; font-weight: 800; color: #974594; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                        ${data.residentMonto} <span style="font-size: 11px; font-weight: normal; color: #6674b6;">c/u</span>
+                      <div style="font-size: 18px; font-weight: 800; color: ${data.montoColor || '#974594'}; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                        ${data.residentMonto} <span style="font-size: 11px; font-weight: normal; color: ${data.cardLabelColor || '#6674b6'};">c/u</span>
                       </div>
                       <div style="font-size: 11px; color: #94a3b8; font-style: italic; margin-top: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                         ${data.residentObs}
@@ -491,14 +510,14 @@ export const BLOCK_TEMPLATES = {
 
                     <!-- Columna Extranjeros -->
                     <td width="48%" valign="top" style="padding-left: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                      <div style="font-size: 11px; font-weight: bold; color: #575ea7; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                      <div style="font-size: 11px; font-weight: bold; color: ${data.cardLabelColor || '#575ea7'}; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                         ${data.nonResidentTitle}
                       </div>
-                      <div style="font-size: 15px; font-weight: bold; color: #254194; margin-bottom: 4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                      <div style="font-size: 15px; font-weight: bold; color: ${data.cardValueColor || '#254194'}; margin-bottom: 4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                         ${data.nonResidentCuotas}
                       </div>
-                      <div style="font-size: 18px; font-weight: 800; color: #974594; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                        ${data.nonResidentMonto} <span style="font-size: 11px; font-weight: normal; color: #6674b6;">c/u</span>
+                      <div style="font-size: 18px; font-weight: 800; color: ${data.montoColor || '#974594'}; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                        ${data.nonResidentMonto} <span style="font-size: 11px; font-weight: normal; color: ${data.cardLabelColor || '#6674b6'};">c/u</span>
                       </div>
                       <div style="font-size: 11px; color: #94a3b8; font-style: italic; margin-top: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                         ${data.nonResidentObs}
@@ -549,21 +568,24 @@ export const BLOCK_TEMPLATES = {
     name: "Llamados a la Acción (CTA)",
     schema: {
       sectionTitle: { type: "text", label: "Título de Sección" },
+      titleColor: { type: "color", label: "Color del Título de Sección" },
       charlaLabel: { type: "text", label: "Charla - Etiqueta" },
       charlaUrl: { type: "text", label: "Charla - URL del Formulario" },
       charlaBtnText: { type: "text", label: "Charla - Texto del Botón" },
+      charlaBtnBgColor: { type: "color", label: "Color del Botón de Charla" },
       whatsappLabel: { type: "text", label: "WhatsApp - Etiqueta" },
       whatsappUrl: { type: "text", label: "WhatsApp - URL" },
       whatsappBtnText: { type: "text", label: "WhatsApp - Texto del Botón" },
       videoLabel: { type: "textarea", label: "Grabación - Descripción (HTML permitido)" },
       videoUrl: { type: "text", label: "Grabación - URL del Video" },
-      videoBtnText: { type: "text", label: "Grabación - Texto del Link" }
+      videoBtnText: { type: "text", label: "Grabación - Texto del Link" },
+      videoTitleColor: { type: "color", label: "Color de Enlace de Video" }
     },
     render: (data) => `
       <!-- Enlaces de Interés y WhatsApp (Llamados a la Acción) -->
       <tr>
         <td style="padding: 30px 40px 30px 40px; text-align: center; background-color: #f5f7fb; border-top: 1px solid #c6d5ed; border-bottom: 1px solid #c6d5ed; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-          <div style="font-size: 16px; font-weight: bold; color: #6a3189; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <div style="font-size: 16px; font-weight: bold; color: ${data.titleColor || '#6a3189'}; margin-bottom: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
             ${data.sectionTitle}
           </div>
 
@@ -578,8 +600,8 @@ export const BLOCK_TEMPLATES = {
                 <!-- Botón Charla -->
                 <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; width: 100%;">
                   <tr>
-                    <td align="center" style="background-color: #254194; border-radius: 4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                      <a href="${data.charlaUrl}" target="_blank" style="display: block; color: #ffffff; background-color: #254194; border: solid 1px #254194; border-radius: 4px; padding: 10px 15px; text-decoration: none; font-size: 13px; font-weight: bold; letter-spacing: 0.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                    <td align="center" style="background-color: ${data.charlaBtnBgColor || '#254194'}; border-radius: 4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                      <a href="${data.charlaUrl}" target="_blank" style="display: block; color: #ffffff; background-color: ${data.charlaBtnBgColor || '#254194'}; border: solid 1px ${data.charlaBtnBgColor || '#254194'}; border-radius: 4px; padding: 10px 15px; text-decoration: none; font-size: 13px; font-weight: bold; letter-spacing: 0.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                         ${data.charlaBtnText}
                       </a>
                     </td>
@@ -612,7 +634,7 @@ export const BLOCK_TEMPLATES = {
           <!-- Última Charla Informativa Link -->
           <div style="margin-top: 25px; font-size: 13px; color: #475569; line-height: 1.5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
             ${data.videoLabel}<br>
-            <a href="${data.videoUrl}" target="_blank" style="color: #6a3189; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+            <a href="${data.videoUrl}" target="_blank" style="color: ${data.videoTitleColor || '#6a3189'}; font-weight: bold; text-decoration: underline; display: inline-block; margin-top: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
               ${data.videoBtnText}
             </a>
           </div>
