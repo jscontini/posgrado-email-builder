@@ -1069,6 +1069,182 @@ export const DEFAULT_TEMPLATES = {
     name: "Especialización en GETEC - Inscripciones Cerradas",
     emailTitle: "Especialización en Gestión de la Tecnología y la Innovación - UNSAM",
     blocks: [] // will be loaded dynamically by copying getec_abierta and modifying the alert
+  },
+
+  maestria_getec_abierta: {
+    name: "Maestría en GETEC - Inscripciones Abiertas",
+    emailTitle: "Maestría en Diseño y Gestión de la Tecnología y la Innovación - UNSAM",
+    blocks: [
+      {
+        type: "header",
+        data: {
+          headerImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1713991868/headmodificado_n6fnas.jpg",
+          headerImageAlt: "Maestría en Diseño y Gestión de la Tecnología y la Innovación - UNSAM"
+        }
+      },
+      {
+        type: "subheader",
+        data: {
+          subHeaderImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1781825599/unnamed_a7g1ca.jpg",
+          subHeaderImageAlt: "Detalle Cabecera"
+        }
+      },
+      {
+        type: "intro",
+        data: {
+          saludo: "Estimado/a, es un gusto saludarte.",
+          introText: `A continuación, te compartimos toda la información necesaria para que puedas efectuar tu postulación a la <a href="https://www.unsam.edu.ar/escuelas/eeyn/701/economia/tecnologia-innovacion" target="_blank" rel="noopener noreferrer" style="color: #254194; font-weight: bold; text-decoration: underline;"><strong>Maestría en Diseño y Gestión de la Tecnología y la Innovación</strong></a> de la UNSAM. Consideramos esta información crucial y valiosa para ayudarte a tomar una decisión informada sobre la continuidad de tus estudios.<br><br>El principal objetivo de la Maestría es contribuir a la formación de nuevos actores dinamizadores de la innovación tecnológica y el desarrollo económico y social, tanto en sus aspectos estratégico-empresariales, como en los de diseño de nuevas políticas e instituciones públicas.`
+        }
+      },
+      {
+        type: "alert",
+        data: {
+          alertType: "success",
+          alertTitle: "Período de Postulación",
+          alertContent: "Las postulaciones estarán habilitadas <strong>del 03/02/2026 al 07/03/2026</strong>. Para efectuar tu postulación, deberás enviar la documentación solicitada, en su conjunto y en formato PDF, respondiendo a esta casilla de correo electrónico."
+        }
+      },
+      {
+        type: "generalInfo",
+        data: {
+          sectionTitle: "Información General y Cursada",
+          card1Label: "Duración y Modalidad",
+          card1Value: "2 Años",
+          card1Text: "La duración total es de <strong>2 años</strong>. Modalidad de cursada quincenal combinando encuentros presenciales y virtuales.",
+          card2Label: "Sede de Cursada",
+          card2Value: "Edificio Volta (UNSAM)",
+          card2Text: `<a href="https://www.google.com/maps/place/Unsam+Posgrados/@-34.6055625,-58.3784183,15z/data=!4m6!3m5!1s0x95bccace13e1d0cd:0x3d2442f10b919226!8m2!3d-34.6055625!4d-58.3784183!16s%2Fg%2F11b_02bj05?entry=ttu" target="_blank" rel="noopener noreferrer" style="color: #254194; text-decoration: underline;">Piso 2, Av. Presidente Roque Sáenz Peña 832, CABA. Escuela de Economía y Negocios.</a>`,
+          card3Label: "Esquema de Cursada (Cada 15 Días)",
+          card3Bullet1: "<strong>Encuentros Presenciales:</strong> 1 Jueves y 1 Viernes por mes, en modalidad intensiva de 9:00 a 18:00 Hs.",
+          card3Bullet2: "<strong>Encuentros Virtuales:</strong> 1 Jueves y 1 Viernes por mes, de 18:00 a 21:00 Hs.",
+          card3Footer: "* Los horarios pueden sufrir modificaciones según necesidades del programa académico."
+        }
+      },
+      {
+        type: "targetAudience",
+        data: {
+          sectionTitle: "¿A quién está dirigido?",
+          introText: "El posgrado está especialmente orientado y diseñado para potenciar las competencias de los siguientes perfiles profesionales:",
+          item1Title: "Ámbito Empresarial y PyMEs:",
+          item1Text: "Gerentes de desarrollo, gerentes de proyectos, emprendedores, empresarios, representantes de cámaras empresariales y profesionales del sector PyME.",
+          item2Title: "Sector Gubernamental:",
+          item2Text: "Funcionarios nacionales, provinciales y municipales a cargo del diseño y la ejecución de políticas orientadas al desarrollo productivo and la innovación, o a cargo de unidades de vinculación tecnológica (UVT).",
+          item3Title: "Ecosistema Tecnológico:",
+          item3Text: "Gerentes y promotores de parques y polos tecnológicos o industriales, así como de incubadoras de empresas.",
+          item4Title: "Investigación y Desarrollo:",
+          item4Text: "Tecnólogos e investigadores ligados con áreas de gestión en Investigación y Desarrollo (I+D) que busquen vincularse con el entramado socio-productivo.",
+          item5Title: "Graduados Universitarios:",
+          item5Text: "Egresados de Licenciaturas en Administración, Comercio Internacional, Contador Público, Información Ambiental, Sistemas de Información y otras afines, así como de Ingenierías (Agronómica, Industrial, en Alimentos, entre otras)."
+        }
+      },
+      {
+        type: "admission",
+        data: {
+          sectionTitle: "Admisión y Documentación",
+          admissionCondition: `<strong>Condiciones de Admisión:</strong> Podrán inscribirse en la Maestría en Diseño y Gestión de la Tecnología y la Innovación:
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 20px; border-collapse: separate;">
+  <tr>
+    <td width="20" valign="top" style="color: #6a3189; font-weight: bold; padding: 2px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">a)</td>
+    <td valign="top" style="padding: 2px 0 8px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Egresadas y egresados de carreras universitarias de grado de 4 años de duración como mínimo, en ciencia política, sociología, economía, arquitectura, relaciones internacionales, trabajo social, ingenierías, comunicación social, antropología, historia, psicología, administración de empresas, comercialización, contador público, derecho, administración pública, arte.</td>
+  </tr>
+  <tr>
+    <td width="20" valign="top" style="color: #6a3189; font-weight: bold; padding: 2px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">b)</td>
+    <td valign="top" style="padding: 2px 0 8px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Egresadas y egresados de carreras de grado de otras disciplinas no mencionadas anterior punto que en su desempeño profesional requieran herramientas de gestión vinculadas a los objetivos de la Maestría. Estos casos serán evaluados por el Comité Académico.</td>
+  </tr>
+  <tr>
+    <td width="20" valign="top" style="color: #6a3189; font-weight: bold; padding: 2px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">c)</td>
+    <td valign="top" style="padding: 2px 0 8px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Postulantes que posean título oficial de carreras de nivel superior no universitario de cuatro (4) años de duración como mínimo.</td>
+  </tr>
+  <tr>
+    <td width="20" valign="top" style="color: #6a3189; font-weight: bold; padding: 2px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">d)</td>
+    <td valign="top" style="padding: 2px 0 8px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Podrán efectuar la postulación a la Maestría las/los graduadas/os de carreras cuya duración no sea inferior a 4 años y 2600 horas. Las excepciones sobre esta cuestión serán evaluadas por el Comité Académico, quien determinará si la/el postulante reúne las condiciones necesarias para ser admitido/a a la carrera e indicará las actividades formativas que eventualmente en cada caso tengan que realizar cada uno de los/las postulantes.</td>
+  </tr>
+  <tr>
+    <td width="20" valign="top" style="color: #6a3189; font-weight: bold; padding: 2px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">e)</td>
+    <td valign="top" style="padding: 2px 0 8px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Las solicitudes de postulantes que se encuentren en las condiciones de excepción previstas, podrán ser admisibles, siempre que demuestren poseer preparación y experiencia laboral acorde con los estudios de posgrado que se proponen iniciar, así como aptitudes y conocimientos suficientes para cursarlos satisfactoriamente.</td>
+  </tr>
+</table>`,
+          requirementsTitle: "Lista de Documentación Obligatoria a Presentar:",
+          doc1: "<strong>CV académico y profesional</strong> actualizado, con foto digital integrada.",
+          doc2: "<strong>Ficha de preinscripción</strong> impresa con el código QR visible. No se admitirán capturas de pantalla de la misma. El trámite se inicia en el portal <a href='https://guarani3.unsam.edu.ar/preinscripcion/unsam/acceso' target='_blank' style='color: #254194; font-weight: bold; text-decoration: underline;'>SIU-Preinscripción</a>.",
+          doc3: "<strong>DNI</strong> escaneado en alta definición (frente y dorso).",
+          doc4: "<strong>Título de grado</strong> de 4 años de duración o superior (frente y dorso).",
+          doc5: "<strong>Certificado analítico de grado</strong> detallado (frente y dorso).",
+          doc6: "<strong>Acreditación de inglés:</strong> Acreditar capacidad para leer y comprender textos editados en idioma inglés (en caso de no contar con un certificado, puede redactar una carta donde deje asentado su capacidad de lecto comprensión en dicho idioma).",
+          doc7: "<strong>Dos cartas de recomendación:</strong> Las mismas pueden ser del ámbito académico y/o profesional.",
+          doc8: "",
+          extraInfoTitle: "Títulos obtenidos en el extranjero:",
+          extraInfoText: `El diploma de grado y certificado analítico deben contar con las firmas legalizadas de la autoridad educativa del país emisor, visadas por el Consulado respectivo de la República Argentina o validadas con la <strong>Apostilla de La Haya</strong>.<br><br>Si la documentación original estuviese en un idioma distinto al español, deberá adjuntar la traducción pública correspondiente efectuada por un/a traductor/a público/a de registro, legalizada por el Colegio de Traductores Públicos (Av. Callao 289, CABA).`
+        }
+      },
+      {
+        type: "tuition",
+        data: {
+          sectionTitle: "Aranceles y Medios de Pago",
+          residentTitle: "Postulantes Residentes",
+          residentCuotas: "20 Cuotas Mensuales",
+          residentMonto: "$350.000",
+          residentObs: "* Materias externas: $350.000 c/u.",
+          nonResidentTitle: "Extranjeros No Residentes",
+          nonResidentCuotas: "20 Cuotas Mensuales",
+          nonResidentMonto: "280 USD",
+          nonResidentObs: "* Materias externas: 220 USD c/u.",
+          discountText: "<strong>Beneficio Comunidad UNSAM:</strong> Se otorga un <strong>50% de descuento</strong> sobre las cuotas mensuales para egresados, docentes y personal no docente de la Universidad Nacional de San Martín.",
+          paymentText: "<strong>Aclaraciones:</strong> Los precios están sujetos a modificación. Las opciones de pago son las provistas mediante el sistema SIRO para la Escuela de Economía y Negocios."
+        }
+      },
+      {
+        type: "bannerImage",
+        data: {
+          bannerImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1781030608/Merediz_thqg1p.png",
+          bannerImageAlt: "Testimonio GETEC"
+        }
+      },
+      {
+        type: "cta",
+        data: {
+          sectionTitle: "¿Deseás recibir asesoramiento o asistir a charlas?",
+          charlaLabel: "Notificaciones de la próxima charla:",
+          charlaUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeOFIgYiN4uoG3lNVX-ObqbHlOPtWrGgsz6AgwL90KUc5QftA/viewform",
+          charlaBtnText: "INSCRIBIRME AQUÍ",
+          whatsappLabel: "Contacto directo por WhatsApp:",
+          whatsappUrl: "https://wa.me/541168083537",
+          whatsappBtnText: "WHATSAPP INFORMATIVO",
+          videoLabel: "Te compartimos la grabación de nuestra última Charla Informativa del <strong>25/02/2026</strong>:",
+          videoUrl: "https://example.com/grabacion-charla-gti",
+          videoBtnText: "Ver Grabación de la Charla Informativa →"
+        }
+      },
+      {
+        type: "closing",
+        data: {
+          closingText: "Quedamos a tu entera disposición ante cualquier consulta y/o inquietud.<br><br>¡Esperamos que puedas sumarte!<br><br>Atentamente,"
+        }
+      },
+      {
+        type: "signature",
+        data: {
+          signatureImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1713991851/signaturefooter_lxydwu.png",
+          signatureImageAlt: "Firma y Contacto"
+        }
+      },
+      {
+        type: "footer",
+        data: {
+          linkedinUrl: "https://www.linkedin.com/school/unsam/",
+          instagramUrl: "https://www.instagram.com/unsamoficial/",
+          twitterUrl: "https://twitter.com/unsamoficial",
+          webUrl: "https://unsam.edu.ar",
+          copyright: "&copy; 2026 Escuela de Economía y Negocios - UNSAM. Todos los derechos reservados."
+        }
+      }
+    ]
+  },
+
+  maestria_getec_cerrada: {
+    name: "Maestría en GETEC - Inscripciones Cerradas",
+    emailTitle: "Maestría en Diseño y Gestión de la Tecnología y la Innovación - UNSAM",
+    blocks: [] // will be loaded dynamically by copying getec_abierta and modifying the alert
   }
 };
 
@@ -1088,3 +1264,12 @@ if (getecAlertBlock) {
   getecAlertBlock.data.alertTitle = "Estado de postulaciones";
   getecAlertBlock.data.alertContent = "Actualmente las preinscripciones y postulaciones se encuentran <strong>cerradas</strong>. Podés aprovechar este lapso para reunir la documentación obligatoria detallada a continuación. La postulación se realiza enviando toda la documentación completa en un único archivo PDF a esta casilla de correo.";
 }
+
+DEFAULT_TEMPLATES.maestria_getec_cerrada.blocks = JSON.parse(JSON.stringify(DEFAULT_TEMPLATES.maestria_getec_abierta.blocks));
+const maestriaAlertBlock = DEFAULT_TEMPLATES.maestria_getec_cerrada.blocks.find(b => b.type === "alert");
+if (maestriaAlertBlock) {
+  maestriaAlertBlock.data.alertType = "danger";
+  maestriaAlertBlock.data.alertTitle = "Estado de postulaciones";
+  maestriaAlertBlock.data.alertContent = "Actualmente las preinscripciones y postulaciones se encuentran <strong>cerradas</strong>. Podés aprovechar este lapso para reunir la documentación obligatoria detallada a continuación. La postulación se realiza enviando toda la documentación completa en un único archivo PDF a esta casilla de correo.";
+}
+
