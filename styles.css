@@ -1,0 +1,209 @@
+/* Estilos personalizados para el editor de plantillas UNSAM */
+
+/* Personalización del Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}
+
+/* Tipografía Base y Suavizado */
+body {
+  font-family: 'Inter', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Efectos de SortableJS */
+.sortable-ghost {
+  opacity: 0.3;
+  border: 2px dashed #974594 !important;
+  background-color: rgba(106, 49, 137, 0.05) !important;
+}
+
+.sortable-chosen {
+  background-color: rgba(240, 244, 250, 0.8) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.sortable-drag {
+  cursor: grabbing !important;
+}
+
+/* Estructura del Bloque en modo Edición (Canvas) */
+.canvas-block {
+  position: relative;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.canvas-block::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1.5px dashed transparent;
+  pointer-events: none;
+  transition: border-color 0.2s ease;
+}
+
+.canvas-block:hover::after {
+  border-color: #3b82f6; /* Azul editor */
+}
+
+.canvas-block.is-selected::after {
+  border-color: #974594; /* Violeta UNSAM */
+  border-style: solid;
+}
+
+/* Barra de herramientas flotante del bloque */
+.block-actions-overlay {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  padding: 2px 4px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 50;
+  pointer-events: none;
+}
+
+.canvas-block:hover .block-actions-overlay {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.canvas-block.is-selected .block-actions-overlay {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  border-color: #974594;
+}
+
+/* Botones individuales de acción del bloque */
+.block-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: #94a3b8;
+  border-radius: 4px;
+  transition: all 0.1s ease;
+}
+
+.block-action-btn:hover {
+  background: #334155;
+  color: #f1f5f9;
+}
+
+.block-action-btn.btn-delete:hover {
+  background: #7f1d1d;
+  color: #fecaca;
+}
+
+.block-action-btn.drag-handle {
+  cursor: grab;
+}
+
+.block-action-btn.drag-handle:active {
+  cursor: grabbing;
+}
+
+/* Etiqueta flotante que indica el tipo de bloque */
+.block-badge-type {
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  background: #334155;
+  color: #cbd5e1;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #475569;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 40;
+  pointer-events: none;
+}
+
+.canvas-block:hover .block-badge-type,
+.canvas-block.is-selected .block-badge-type {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.canvas-block.is-selected .block-badge-type {
+  background: #6a3189;
+  color: #fdf4ff;
+  border-color: #974594;
+}
+
+/* Estilos para animaciones de Toast */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.toast-animate {
+  animation: slideInUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Estilos para el Editor del Plan de Estudios */
+.subject-grid-input {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.subject-grid-headers {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #334155;
+}
+
+/* Efectos de Glassmorphism */
+.glass-panel {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
