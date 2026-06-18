@@ -1,0 +1,6 @@
+name = "posgrado-email-builder"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "TEMPLATE_KV"
+id = "5cb21ba7d180407090f97de586f2e89f"
