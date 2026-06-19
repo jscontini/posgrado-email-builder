@@ -474,6 +474,60 @@ function deleteBlock(blockId) {
   showToast(`Bloque "${BLOCK_TEMPLATES[type].name}" eliminado`, 'info');
 }
 
+// Helper para aplicar formato a la selección de texto en un input o textarea
+function applyFormatting(inputEl, formatType) {
+  const start = inputEl.selectionStart;
+  const end = inputEl.selectionEnd;
+  const text = inputEl.value;
+  const selectedText = text.substring(start, end);
+  
+  let prefix = '';
+  let suffix = '';
+  let replacement = '';
+  
+  if (formatType === 'strong') {
+    prefix = '<strong>';
+    suffix = '</strong>';
+    replacement = prefix + (selectedText || 'texto en negrita') + suffix;
+  } else if (formatType === 'italic') {
+    prefix = '<em>';
+    suffix = '</em>';
+    replacement = prefix + (selectedText || 'texto en cursiva') + suffix;
+  } else if (formatType === 'link') {
+    const url = prompt("Ingrese la URL del enlace (ej: https://unsam.edu.ar):", "https://");
+    if (url === null) return; // Cancelado
+    const cleanUrl = url.trim() || 'https://';
+    prefix = `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" style="color: #254194; font-weight: bold; text-decoration: underline;">`;
+    suffix = '</a>';
+    replacement = prefix + (selectedText || 'enlace') + suffix;
+  } else if (formatType === 'list') {
+    prefix = '\n<ul>\n  <li>';
+    suffix = '</li>\n</ul>\n';
+    if (selectedText) {
+      const lines = selectedText.replace(/\r/g, '').split('\n').map(line => line.trim()).filter(line => line.length > 0);
+      if (lines.length > 1) {
+        replacement = '\n<ul>\n' + lines.map(line => `  <li>${line}</li>`).join('\n') + '\n</ul>\n';
+      } else if (lines.length === 1) {
+        replacement = prefix + lines[0] + suffix;
+      } else {
+        replacement = prefix + 'elemento' + suffix;
+      }
+    } else {
+      replacement = prefix + 'elemento' + suffix;
+    }
+  }
+  
+  inputEl.value = text.substring(0, start) + replacement + text.substring(end);
+  
+  // Devolver el foco y seleccionar el texto insertado
+  inputEl.focus();
+  inputEl.setSelectionRange(start, start + replacement.length);
+  
+  // Disparar evento de input para actualizar el estado reactivo y previsualización
+  const event = new Event('input', { bubbles: true });
+  inputEl.dispatchEvent(event);
+}
+
 // 11. Renderizar el editor del panel derecho según el bloque seleccionado
 function renderEditor() {
   if (!state.selectedBlockId) {
@@ -544,8 +598,27 @@ function renderEditor() {
       inputHtml = renderColorPalette(key, value);
     }
 
+    const supportsFormatting = (field.type === 'textarea' || (field.type === 'text' && !key.toLowerCase().endsWith('url') && !key.toLowerCase().endsWith('alt') && !key.toLowerCase().endsWith('color')));
+    
+    let labelHtml = '';
+    if (supportsFormatting) {
+      labelHtml = `
+        <div class="flex items-center justify-between">
+          <label class="block text-[11px] font-semibold text-slate-400">${field.label}</label>
+          <div class="flex items-center space-x-1">
+            <button type="button" data-format-btn="strong" data-target-key="${key}" class="px-1.5 py-0.5 text-[9px] font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 hover:text-white transition-colors cursor-pointer" title="Negrita">B</button>
+            <button type="button" data-format-btn="italic" data-target-key="${key}" class="px-1.5 py-0.5 text-[9px] italic bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 hover:text-white transition-colors cursor-pointer" title="Cursiva">I</button>
+            <button type="button" data-format-btn="link" data-target-key="${key}" class="px-1.5 py-0.5 text-[9px] bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 hover:text-white transition-colors cursor-pointer" title="Enlace (Nueva ventana)">🔗</button>
+            <button type="button" data-format-btn="list" data-target-key="${key}" class="px-1.5 py-0.5 text-[9px] bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 hover:text-white transition-colors cursor-pointer" title="Lista">• Lista</button>
+          </div>
+        </div>
+      `;
+    } else {
+      labelHtml = `<label class="block text-[11px] font-semibold text-slate-400">${field.label}</label>`;
+    }
+
     wrapper.innerHTML = `
-      <label class="block text-[11px] font-semibold text-slate-400">${field.label}</label>
+      ${labelHtml}
       ${inputHtml}
     `;
 
@@ -592,6 +665,21 @@ function renderEditor() {
         }
         
         debounceRender();
+      });
+    }
+
+    if (supportsFormatting) {
+      const formatButtons = wrapper.querySelectorAll('[data-format-btn]');
+      formatButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetKey = e.currentTarget.dataset.targetKey;
+          const formatType = e.currentTarget.dataset.formatBtn;
+          const inputEl = wrapper.querySelector(`[data-key="${targetKey}"]`);
+          if (inputEl) {
+            applyFormatting(inputEl, formatType);
+          }
+        });
       });
     }
 
