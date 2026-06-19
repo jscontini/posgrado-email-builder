@@ -216,7 +216,23 @@ export const BLOCK_TEMPLATES = {
       item5Title: { type: "text", label: "Item 5 - Negrita" },
       item5Text: { type: "textarea", label: "Item 5 - Cuerpo" }
     },
-    render: (data) => `
+    render: (data) => {
+      const items = [
+        { title: data.item1Title, text: data.item1Text },
+        { title: data.item2Title, text: data.item2Text },
+        { title: data.item3Title, text: data.item3Text },
+        { title: data.item4Title, text: data.item4Text },
+        { title: data.item5Title, text: data.item5Text }
+      ].filter(item => item.title || item.text);
+
+      const itemsRows = items.map(item => `
+        <tr>
+          <td width="20" valign="top" style="color: ${data.bulletColor || '#6a3189'}; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
+          <td valign="top" style="padding: 2px 0 6px 0;"><strong>${item.title || ''}</strong> ${item.text || ''}</td>
+        </tr>
+      `).join('');
+
+      return `
       <!-- ¿A quién está dirigido? -->
       <tr>
         <td style="padding: 0 40px 30px 40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
@@ -230,32 +246,14 @@ export const BLOCK_TEMPLATES = {
             <tr>
               <td style="font-size: 13.5px; color: #475569; line-height: 1.6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                  <tr>
-                    <td width="20" valign="top" style="color: ${data.bulletColor || '#6a3189'}; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
-                    <td valign="top" style="padding: 2px 0 6px 0;"><strong>${data.item1Title}</strong> ${data.item1Text}</td>
-                  </tr>
-                  <tr>
-                    <td width="20" valign="top" style="color: ${data.bulletColor || '#6a3189'}; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
-                    <td valign="top" style="padding: 2px 0 6px 0;"><strong>${data.item2Title}</strong> ${data.item2Text}</td>
-                  </tr>
-                  <tr>
-                    <td width="20" valign="top" style="color: ${data.bulletColor || '#6a3189'}; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
-                    <td valign="top" style="padding: 2px 0 6px 0;"><strong>${data.item3Title}</strong> ${data.item3Text}</td>
-                  </tr>
-                  <tr>
-                    <td width="20" valign="top" style="color: ${data.bulletColor || '#6a3189'}; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
-                    <td valign="top" style="padding: 2px 0 6px 0;"><strong>${data.item4Title}</strong> ${data.item4Text}</td>
-                  </tr>
-                  <tr>
-                    <td width="20" valign="top" style="color: ${data.bulletColor || '#6a3189'}; font-weight: bold; font-size: 16px; padding: 2px 0;">&bull;</td>
-                    <td valign="top" style="padding: 2px 0 6px 0;"><strong>${data.item5Title}</strong> ${data.item5Text}</td>
-                  </tr>
+                  ${itemsRows}
                 </table>
               </td>
             </tr>
           </table>
         </td>
-      </tr>`
+      </tr>`;
+    }
   },
 
   about: {
@@ -294,6 +292,8 @@ export const BLOCK_TEMPLATES = {
       doc6: { type: "text", label: "Documento 6" },
       doc7: { type: "text", label: "Documento 7" },
       doc8: { type: "text", label: "Documento 8" },
+      doc9: { type: "text", label: "Documento 9" },
+      doc10: { type: "text", label: "Documento 10" },
       extraInfoTitle: { type: "text", label: "Título Alerta de Títulos Extranjeros" },
       extraInfoText: { type: "textarea", label: "Texto Alerta de Títulos Extranjeros (HTML permitido)" },
       alertBgColor: { type: "color", label: "Color de Fondo de Alerta" },
@@ -301,7 +301,7 @@ export const BLOCK_TEMPLATES = {
       alertTitleColor: { type: "color", label: "Color del Título de Alerta" }
     },
     render: (data) => {
-      const docs = [data.doc1, data.doc2, data.doc3, data.doc4, data.doc5, data.doc6, data.doc7, data.doc8].filter(Boolean);
+      const docs = [data.doc1, data.doc2, data.doc3, data.doc4, data.doc5, data.doc6, data.doc7, data.doc8, data.doc9, data.doc10].filter(Boolean);
       const docsRows = docs.map(doc => `
         <tr>
           <td width="24" valign="top" style="color: #10b981; font-weight: bold; font-size: 16px; padding: 3px 0; font-family: Arial, sans-serif;">✓</td>
@@ -1245,6 +1245,177 @@ export const DEFAULT_TEMPLATES = {
     name: "Maestría en GETEC - Inscripciones Cerradas",
     emailTitle: "Maestría en Diseño y Gestión de la Tecnología y la Innovación - UNSAM",
     blocks: [] // will be loaded dynamically by copying getec_abierta and modifying the alert
+  },
+
+  doctorado_ciencias_economicas_abierta: {
+    name: "Doctorado en Ciencias Económicas - Inscripciones Abiertas",
+    emailTitle: "Doctorado en Ciencias Económicas - UNSAM (Inscripciones Abiertas)",
+    blocks: [
+      {
+        type: "header",
+        data: {
+          headerImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1713991868/headmodificado_n6fnas.jpg",
+          headerImageAlt: "Doctorado en Ciencias Económicas - UNSAM"
+        }
+      },
+      {
+        type: "subheader",
+        data: {
+          subHeaderImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1781894252/Encabezado_Doc._Cs._Eco_-_Editado_b9biqd.jpg",
+          subHeaderImageAlt: "Detalle Cabecera"
+        }
+      },
+      {
+        type: "intro",
+        data: {
+          saludo: "Estimado/a,",
+          introText: `Nos complace saber que el <a href="https://www.unsam.edu.ar/escuelas/eeyn/695/economia/doctorado-ciencias-economicas" target="_blank" rel="noopener noreferrer" style="color: #254194; font-weight: bold; text-decoration: underline;"><strong>Doctorado en Ciencias Económicas</strong></a> de la UNSAM ha despertado tu interés para continuar tu formación académica. A continuación, te compartimos toda la información necesaria para que puedas efectuar tu postulación. Consideramos esta información crucial y valiosa para ayudarte a tomar una decisión informada sobre la continuidad de tus estudios.<br><br>El Doctorado en Ciencias Económicas busca impulsar el progreso de las mismas en la Argentina y en la región, formando investigadores con la habilidad para conceptualizar, diseñar e implementar investigación de calidad.`
+        }
+      },
+      {
+        type: "alert",
+        data: {
+          alertType: "success",
+          alertTitle: "Período de Postulación",
+          alertContent: "Las postulaciones estarán habilitadas <strong>del 03/02/2026 al 07/03/2026</strong>. Para efectuar tu postulación, deberás enviar la documentación solicitada, en su conjunto y en formato PDF, respondiendo a esta casilla de correo electrónico."
+        }
+      },
+      {
+        type: "generalInfo",
+        data: {
+          sectionTitle: "Información General y Cursada",
+          card1Label: "Duración y Modalidad",
+          card1Value: "4 Años",
+          card1Text: "La duración total es de <strong>4 años</strong>. Modalidad de cursada presencial con parte de la carga virtual.",
+          card2Label: "Sede de Cursada",
+          card2Value: "Edificio Volta (UNSAM)",
+          card2Text: `<a href="https://www.google.com/maps/place/Unsam+Posgrados/@-34.6055625,-58.3784183,15z/data=!4m6!3m5!1s0x95bccace13e1d0cd:0x3d2442f10b919226!8m2!3d-34.6055625!4d-58.3784183!16s%2Fg%2F11b_02bj05?entry=ttu" target="_blank" rel="noopener noreferrer" style="color: #254194; text-decoration: underline;">Piso 2, Av. Presidente Roque Sáenz Peña 832, CABA. Escuela de Economía y Negocios.</a>`,
+          card3Label: "Esquema de Cursada Semanal",
+          card3Bullet1: "<strong>Días de dictado:</strong> Generalmente los Lunes, Miércoles o Jueves.",
+          card3Bullet2: "<strong>Horario de cursada:</strong> De 18:00 a 21:00 Hs.",
+          card3Footer: "* Los días y horarios pueden sufrir modificaciones según necesidades del programa académico."
+        }
+      },
+      {
+        type: "targetAudience",
+        data: {
+          sectionTitle: "¿A quién está destinado?",
+          introText: "El Doctorado está destinado a estudiantes que cuenten con título de grado en disciplinas afines y busquen una formación avanzada en investigación.",
+          item1Title: "Campos Profesionales Admitidos:",
+          item1Text: "Economía, Contador Público, Administración, Turismo, Ingeniería, Relaciones Internacionales, Ciencia Política, Administración Pública o Sociología.",
+          item2Title: "Requisitos de Carga Horaria de Grado:",
+          item2Text: "Las carreras universitarias de procedencia deben contar con un mínimo de <strong>4 años de duración y 2600 horas reloj</strong>."
+        }
+      },
+      {
+        type: "about",
+        data: {
+          sectionTitle: "Proceso de Admisión",
+          descriptionText: `El ingreso al Doctorado consta de un proceso estructurado en etapas:
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 10px;">
+  <tr>
+    <td width="5%" valign="top" style="color: #254194; font-weight: bold; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">1.</td>
+    <td width="95%" style="font-size: 13.5px; color: #475569; padding-bottom: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; text-align: justify;"><strong>Preinscripción y Envío:</strong> Cada interesada/o debe enviar la totalidad de la documentación solicitada (ver lista más abajo) a esta casilla de correo electrónico en formato PDF.</td>
+  </tr>
+  <tr>
+    <td width="5%" valign="top" style="color: #254194; font-weight: bold; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">2.</td>
+    <td width="95%" style="font-size: 13.5px; color: #475569; padding-bottom: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; text-align: justify;"><strong>Evaluación del Comité:</strong> Una vez cerrado el período de postulaciones, el Comité Académico evalúa las presentaciones y realiza una <strong>entrevista personal</strong> con el/la postulante junto con el/la Director/a del Doctorado.</td>
+  </tr>
+  <tr>
+    <td width="5%" valign="top" style="color: #254194; font-weight: bold; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">3.</td>
+    <td width="95%" style="font-size: 13.5px; color: #475569; padding-bottom: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; text-align: justify;"><strong>Admisión e Inscripción:</strong> Se comunican formalmente las admisiones a los seleccionados. Junto con la carta de admisión, se enviará el instructivo para inscribirse a las materias correspondientes y el procedimiento para abonar la primera cuota.</td>
+  </tr>
+</table>`
+        }
+      },
+      {
+        type: "admission",
+        data: {
+          sectionTitle: "Documentación Requerida",
+          admissionCondition: "A los fines de efectuar tu postulación, deberás adjuntar en un mismo correo la siguiente documentación obligatoria en formato PDF:",
+          requirementsTitle: "",
+          doc1: "<strong>CV académico y profesional</strong> actualizado, con foto digital integrada.",
+          doc2: "<strong>Ficha de preinscripción</strong> impresa con el código QR correspondiente. No se admitirán capturas de pantalla. El trámite se inicia en el portal <a href='https://guarani3.unsam.edu.ar/preinscripcion/unsam/acceso' target='_blank' style='color: #254194; font-weight: bold; text-decoration: underline;'>SIU-Preinscripción</a>.",
+          doc3: "<strong>DNI</strong> escaneado en alta definición (frente y dorso).",
+          doc4: "<strong>Título de grado</strong> de 4 años de duración o superior y mínimo 2600 horas (frente y dorso).",
+          doc5: "<strong>Certificado analítico de grado</strong> completo (frente y dorso).",
+          doc6: "<strong>Partida de Nacimiento</strong> completa (frente y dorso).",
+          doc7: "<strong>Acreditación de inglés:</strong> Acreditar capacidad para leer y comprender textos editados en idioma inglés. En caso de no contar con un certificado de idiomas, se puede adjuntar una carta redactada por el/la postulante donde declare y asiente dicha capacidad de lecto-comprensión.",
+          doc8: "<strong>Dos cartas de recomendación:</strong> Se tomarán como válidas aquellas provenientes tanto del ámbito académico como del profesional.",
+          doc9: "<strong>Carta de motivación:</strong> Documento (máximo dos carillas) en el que se fundamenten los motivos por los cuales te interesa realizar el Doctorado en Ciencias Económicas.",
+          doc10: "<strong>Plan de trabajo preliminar:</strong> Documento de no más de 5 páginas que incluya: título, justificación breve del problema de investigación (antecedentes), planteo de la pregunta u objetivos de investigación, metodología propuesta y cronograma de actividades preliminares.",
+          extraInfoTitle: "Títulos obtenidos en el extranjero:",
+          extraInfoText: `El diploma de grado y el certificado analítico deben contar con las firmas legalizadas de la autoridad educativa del país emisor, visadas por el Consulado respectivo de la República Argentina o validadas con la <strong>Apostilla de La Haya</strong>.<br><br>Si la documentación original estuviese en un idioma distinto al español, deberá adjuntar la traducción pública correspondiente efectuada por un/a traductor/a público/a de registro, legalizada por el Colegio de Traductores Públicos (Av. Callao 289, CABA).`
+        }
+      },
+      {
+        type: "tuition",
+        data: {
+          sectionTitle: "Aranceles y Medios de Pago",
+          residentTitle: "Postulantes Residentes",
+          residentCuotas: "20 Cuotas Mensuales",
+          residentMonto: "$250.000",
+          residentObs: "Y posteriormente, hasta la finalización de la tesis, cuotas de <strong>$125.000</strong>.<br>* Materias para externos: $250.000 c/u.",
+          nonResidentTitle: "Extranjeros No Residentes",
+          nonResidentCuotas: "20 Cuotas Mensuales",
+          nonResidentMonto: "220 USD",
+          nonResidentObs: "Y posteriormente, hasta la finalización de la tesis, cuotas de <strong>110 USD</strong>.<br>* Materias para externos: 220 USD c/u.",
+          discountText: "<strong>Beneficio Comunidad UNSAM:</strong> Se otorga un <strong>50% de descuento</strong> sobre las cuotas mensuales para egresados, docentes y personal no docente de la Universidad Nacional de San Martín.",
+          paymentText: "<strong>Aclaraciones:</strong> Los precios están expresados a modo de referencia y sujetos a modificación. Las opciones de pago son las provistas mediante el sistema SIRO para la Escuela de Economía y Negocios."
+        }
+      },
+      {
+        type: "bannerImage",
+        data: {
+          bannerImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1781894252/kulfas_zxfdeq.png",
+          bannerImageAlt: "Testimonio Doctorado"
+        }
+      },
+      {
+        type: "cta",
+        data: {
+          sectionTitle: "¿Deseás recibir asesoramiento o asistir a charlas?",
+          charlaLabel: "Notificaciones de la próxima charla:",
+          charlaUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeOFIgYiN4uoG3lNVX-ObqbHlOPtWrGgsz6AgwL90KUc5QftA/viewform",
+          charlaBtnText: "INSCRIBIRME AQUÍ",
+          whatsappLabel: "Contacto directo por WhatsApp:",
+          whatsappUrl: "https://wa.me/541168083537",
+          whatsappBtnText: "WHATSAPP INFORMATIVO",
+          videoLabel: "Te compartimos la grabación de nuestra última Charla Informativa del <strong>31/10/2025</strong>:",
+          videoUrl: "https://universidadnaciona-my.sharepoint.com/:v:/g/personal/posgrado_eeyn_unsam_edu_ar/EcV9Hn72cuxBooIxrm4PDy0BA__ZW3xWstV9B6uhjQx-JQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHAQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=rMTYS2",
+          videoBtnText: "Ver Grabación de la Charla Informativa →"
+        }
+      },
+      {
+        type: "closing",
+        data: {
+          closingText: "Quedamos a tu entera disposición ante cualquier consulta y/o inquietud.<br><br>¡Esperamos que puedas sumarte!<br><br>Atentamente,"
+        }
+      },
+      {
+        type: "signature",
+        data: {
+          signatureImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1713991851/signaturefooter_lxydwu.png",
+          signatureImageAlt: "Firma y Contacto"
+        }
+      },
+      {
+        type: "footer",
+        data: {
+          linkedinUrl: "https://www.linkedin.com/school/unsam/",
+          instagramUrl: "https://www.instagram.com/unsamoficial/",
+          twitterUrl: "https://twitter.com/unsamoficial",
+          webUrl: "https://unsam.edu.ar",
+          copyright: "&copy; 2026 Escuela de Economía y Negocios - UNSAM. Todos los derechos reservados."
+        }
+      }
+    ]
+  },
+
+  doctorado_ciencias_economicas_cerrada: {
+    name: "Doctorado en Ciencias Económicas - Inscripciones Cerradas",
+    emailTitle: "Doctorado en Ciencias Económicas - UNSAM",
+    blocks: [] // will be loaded dynamically by copying doctorado_ciencias_economicas_abierta and modifying the alert
   }
 };
 
@@ -1272,4 +1443,13 @@ if (maestriaAlertBlock) {
   maestriaAlertBlock.data.alertTitle = "Estado de postulaciones";
   maestriaAlertBlock.data.alertContent = "Actualmente las preinscripciones y postulaciones se encuentran <strong>cerradas</strong>. Podés aprovechar este lapso para reunir la documentación obligatoria detallada a continuación. La postulación se realiza enviando toda la documentación completa en un único archivo PDF a esta casilla de correo.";
 }
+
+DEFAULT_TEMPLATES.doctorado_ciencias_economicas_cerrada.blocks = JSON.parse(JSON.stringify(DEFAULT_TEMPLATES.doctorado_ciencias_economicas_abierta.blocks));
+const doctoradoAlertBlock = DEFAULT_TEMPLATES.doctorado_ciencias_economicas_cerrada.blocks.find(b => b.type === "alert");
+if (doctoradoAlertBlock) {
+  doctoradoAlertBlock.data.alertType = "danger";
+  doctoradoAlertBlock.data.alertTitle = "Estado de postulaciones";
+  doctoradoAlertBlock.data.alertContent = "Actualmente las preinscripciones y postulaciones se encuentran <strong>cerradas</strong>. Podés aprovechar este lapso para reunir la documentación obligatoria detallada a continuación. La postulación se realiza enviando toda la documentación completa en un único archivo PDF a esta casilla de correo.";
+}
+
 
