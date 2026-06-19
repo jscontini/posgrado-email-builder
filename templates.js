@@ -1416,6 +1416,178 @@ export const DEFAULT_TEMPLATES = {
     name: "Doctorado en Ciencias Económicas - Inscripciones Cerradas",
     emailTitle: "Doctorado en Ciencias Económicas - UNSAM",
     blocks: [] // will be loaded dynamically by copying doctorado_ciencias_economicas_abierta and modifying the alert
+  },
+
+  doctorado_economia_innovacion_abierta: {
+    name: "Doctorado en Economía de la Innovación - Inscripciones Abiertas",
+    emailTitle: "Doctorado en Economía de la Innovación - UNSAM (Inscripciones Abiertas)",
+    blocks: [
+      {
+        type: "header",
+        data: {
+          headerImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1713991868/headmodificado_n6fnas.jpg",
+          headerImageAlt: "Doctorado en Economía de la Innovación - UNSAM"
+        }
+      },
+      {
+        type: "subheader",
+        data: {
+          subHeaderImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1781901986/Encabezado_Doc._Eco._Innov_-_Editado_migugq.jpg",
+          subHeaderImageAlt: "Detalle Cabecera"
+        }
+      },
+      {
+        type: "intro",
+        data: {
+          saludo: "Estimado/a,",
+          introText: `En respuesta a tu consulta, te informamos que el <a href="https://unsam.edu.ar/escuelas/eeyn/670/economia/doctorado-economia-innovacion" target="_blank" rel="noopener noreferrer" style="color: #254194; font-weight: bold; text-decoration: underline;"><strong>Doctorado en Economía de la Innovación</strong></a> de la UNSAM ha despertado tu interés para continuar tu formación académica. A continuación, te compartimos toda la información necesaria para que puedas efectuar tu postulación. Consideramos esta información crucial y valiosa para ayudarte a tomar una decisión informada sobre la continuidad de tus estudios.<br><br>El Doctorado en Economía de la Innovación está especialmente orientado a formar investigadores capaces de aportar al análisis y diseño de políticas de ciencia, tecnología y sustentabilidad.`
+        }
+      },
+      {
+        type: "alert",
+        data: {
+          alertType: "success",
+          alertTitle: "Período de Postulación",
+          alertContent: "Las postulaciones estarán habilitadas <strong>del 03/02/2026 al 07/03/2026</strong>. Para efectuar tu postulación, deberás enviar la documentación solicitada, en su conjunto y en formato PDF, respondiendo a esta casilla de correo electrónico."
+        }
+      },
+      {
+        type: "generalInfo",
+        data: {
+          sectionTitle: "Información General y Cursada",
+          card1Label: "Duración y Modalidad",
+          card1Value: "4 Años",
+          card1Text: "La duración total es de <strong>4 años</strong>. Modalidad de cursada presencial, intensiva y virtual.",
+          card2Label: "Sedes de Cursada",
+          card2Value: "Volta / Campus Miguelete",
+          card2Text: `Se cursa conjuntamente en el <strong><a href="https://www.google.com/maps/place/Unsam+Posgrados/@-34.6055625,-58.3784183,15z/data=!4m6!3m5!1s0x95bccace13e1d0cd:0x3d2442f10b919226!8m2!3d-34.6055625!4d-58.3784183!16s%2Fg%2F11b_02bj05?entry=ttu" target="_blank" rel="noopener noreferrer" style="color: #254194; text-decoration: underline;">Edificio Volta</a></strong> (Diagonal Norte 832, Piso 2, CABA) y en el <strong>Campus Miguelete</strong> (25 de Mayo y Francia, San Martín).`,
+          card3Label: "Cronograma y Requisitos de Avance",
+          card3Bullet1: "<strong>Asignaturas:</strong> Se estipula cursar entre 2 y 3 materias por cuatrimestre, completando las áreas teóricas, de investigación y complementarias en un máximo de 2 años.",
+          card3Bullet2: "<strong>Horarios generales:</strong> Miércoles, Jueves y Viernes de 16:00 a 20:00 Hs. Adicionalmente, se podría cursar algún sábado de 9:00 a 13:00 Hs.",
+          card3Bullet3: "<strong>Taller de Tesis:</strong> Es requisito indispensable haber aprobado el Taller de Proyecto de Tesis y registrar un avance mínimo del 40% en la escritura de la misma.",
+          card3Footer: "* Los días de cursada específicos se definen en función de cada asignatura y están sujetos a modificaciones."
+        }
+      },
+      {
+        type: "targetAudience",
+        data: {
+          sectionTitle: "¿A quién está destinado?",
+          introText: "El Doctorado en Economía de la Innovación busca atraer a graduadas y graduados universitarios orientados a la investigación del cambio tecnológico y el desarrollo.",
+          item1Title: "Campos Profesionales Admitidos:",
+          item1Text: "Graduadas/os en ciencias económicas, sociales o ambientales que demuestren afinidad con las temáticas de ciencia, tecnología e innovación.",
+          item2Title: "Requisitos de Carga Horaria de Grado:",
+          item2Text: "Las carreras universitarias de procedencia deben acreditar un mínimo de <strong>4 años de duración y 2600 horas reloj</strong>."
+        }
+      },
+      {
+        type: "about",
+        data: {
+          sectionTitle: "Proceso de Admisión",
+          descriptionText: `El ingreso al Doctorado consta de un proceso estructurado en etapas:
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 10px;">
+  <tr>
+    <td width="5%" valign="top" style="color: #254194; font-weight: bold; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">1.</td>
+    <td width="95%" style="font-size: 13.5px; color: #475569; padding-bottom: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; text-align: justify;"><strong>Preinscripción y Envío:</strong> Cada interesada/o debe enviar la totalidad de la documentación solicitada (ver lista más abajo) a esta casilla de correo electrónico en formato PDF.</td>
+  </tr>
+  <tr>
+    <td width="5%" valign="top" style="color: #254194; font-weight: bold; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">2.</td>
+    <td width="95%" style="font-size: 13.5px; color: #475569; padding-bottom: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; text-align: justify;"><strong>Evaluación del Comité:</strong> Una vez cerrado el período de postulaciones, el Comité Académico evalúa las presentaciones y realiza una <strong>entrevista personal</strong> con el/la postulante junto con las autoridades del Doctorado.</td>
+  </tr>
+  <tr>
+    <td width="5%" valign="top" style="color: #254194; font-weight: bold; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">3.</td>
+    <td width="95%" style="font-size: 13.5px; color: #475569; padding-bottom: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; text-align: justify;"><strong>Admisión e Inscripción:</strong> Se comunican formalmente las admisiones a los seleccionados. Junto con la carta de admisión, se enviará el instructivo para inscribirse a las materias correspondientes y el procedimiento para abonar la primera cuota.</td>
+  </tr>
+</table>`
+        }
+      },
+      {
+        type: "admission",
+        data: {
+          sectionTitle: "Documentación Requerida",
+          admissionCondition: "A los fines de efectuar tu postulación, deberás adjuntar en un mismo correo la siguiente documentación obligatoria en formato PDF:",
+          requirementsTitle: "",
+          doc1: "<strong>CV académico y profesional</strong> actualizado, con foto digital integrada.",
+          doc2: "<strong>Ficha de preinscripción</strong> impresa con el código QR correspondiente. No se admitirán capturas de pantalla. El trámite se inicia en el portal <a href=\"https://guarani3.unsam.edu.ar/preinscripcion/unsam/acceso\" target=\"_blank\" style=\"color: #254194; font-weight: bold; text-decoration: underline;\">SIU-Preinscripción</a>.",
+          doc3: "<strong>DNI</strong> escaneado en alta definición (frente y dorso).",
+          doc4: "<strong>Título de grado</strong> de 4 años de duración o superior y mínimo 2600 horas (frente y dorso).",
+          doc5: "<strong>Certificado analítico de grado</strong> completo (frente y dorso).",
+          doc6: "<strong>Partida de Nacimiento</strong> completa (frente y dorso).",
+          doc7: "<strong>Acreditación de inglés:</strong> Acreditar capacidad para leer y comprender textos editados en idioma inglés. En caso de no contar con un certificado de idiomas, se puede adjuntar una carta redactada por el/la postulante donde declare y asiente dicha capacidad de lecto-comprensión.",
+          doc8: "<strong>Dos cartas de recomendación:</strong> Se tomarán como válidas aquellas provenientes tanto del ámbito académico como del profesional.",
+          doc9: "<strong>Carta de motivación:</strong> Documento (máximo dos carillas) en el que se fundamenten los motivos por los cuales te interesa realizar el Doctorado en Economía de la Innovación.",
+          doc10: "<strong>Plan de trabajo preliminar:</strong> Documento de no más de 5 páginas que incluya: título, justificación breve del problema de investigación (antecedentes), planteo de la pregunta u objetivos de investigación, metodología propuesta y cronograma de actividades preliminares.",
+          extraInfoTitle: "Títulos obtenidos en el extranjero:",
+          extraInfoText: `El diploma de grado y el certificado analítico deben contar con las firmas legalizadas de la autoridad educativa del país emisor, visadas por el Consulado respectivo de la República Argentina o validadas con la <strong>Apostilla de La Haya</strong>.<br><br>Si la documentación original estuviese en un idioma distinto al español, deberá adjuntar la traducción pública correspondiente efectuada por un/a traductor/a público/a de registro, legalizada por el Colegio de Traductores Públicos (Av. Callao 289, CABA).`
+        }
+      },
+      {
+        type: "tuition",
+        data: {
+          sectionTitle: "Aranceles y Medios de Pago",
+          residentTitle: "Postulantes Residentes",
+          residentCuotas: "20 Cuotas Mensuales",
+          residentMonto: "$250.000",
+          residentObs: "Y posteriormente, hasta la finalización de la tesis, cuotas de <strong>$125.000</strong>.<br>* Materias para externos: $250.000 c/u.",
+          nonResidentTitle: "Extranjeros No Residentes",
+          nonResidentCuotas: "20 Cuotas Mensuales",
+          nonResidentMonto: "220 USD",
+          nonResidentObs: "Y posteriormente, hasta la finalización de la tesis, cuotas de <strong>110 USD</strong>.<br>* Materias para externos: 220 USD c/u.",
+          discountText: "<strong>Beneficio Comunidad UNSAM:</strong> Se otorga un <strong>50% de descuento</strong> sobre las cuotas mensuales para egresados, docentes y personal no docente de la Universidad Nacional de San Martín.",
+          paymentText: "<strong>Aclaraciones:</strong> Los precios están expresados a modo de referencia y sujetos a modificación. Las opciones de pago son las provistas mediante el sistema SIRO para la Escuela de Economía y Negocios."
+        }
+      },
+      {
+        type: "bannerImage",
+        data: {
+          bannerImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1781901987/arza_znbbf2.png",
+          bannerImageAlt: "Testimonio Doctorado"
+        }
+      },
+      {
+        type: "cta",
+        data: {
+          sectionTitle: "¿Deseás recibir asesoramiento o asistir a charlas?",
+          charlaLabel: "Notificaciones de la próxima charla:",
+          charlaUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeOFIgYiN4uoG3lNVX-ObqbHlOPtWrGgsz6AgwL90KUc5QftA/viewform",
+          charlaBtnText: "INSCRIBIRME AQUÍ",
+          whatsappLabel: "Contacto directo por WhatsApp:",
+          whatsappUrl: "https://wa.me/541168083537",
+          whatsappBtnText: "WHATSAPP INFORMATIVO",
+          videoLabel: "Te compartimos la grabación de nuestra última Charla Informativa del <strong>31/10/2025</strong>:",
+          videoUrl: "https://universidadnaciona-my.sharepoint.com/:v:/g/personal/posgrado_eeyn_unsam_edu_ar/IQCNHWZbXlRRTYbRWSKAax_BAcSGpu-Vg1mMaNwY6dElZSg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHAQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=E0QmHC",
+          videoBtnText: "Ver Grabación de la Charla Informativa &rarr;"
+        }
+      },
+      {
+        type: "closing",
+        data: {
+          closingText: "Quedamos a tu entera disposición ante cualquier consulta y/o inquietud.<br><br>¡Esperamos que puedas sumarte!<br><br>Atentamente,"
+        }
+      },
+      {
+        type: "signature",
+        data: {
+          signatureImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1713991851/signaturefooter_lxydwu.png",
+          signatureImageAlt: "Firma y Contacto"
+        }
+      },
+      {
+        type: "footer",
+        data: {
+          linkedinUrl: "https://www.linkedin.com/school/unsam/",
+          instagramUrl: "https://www.instagram.com/unsamoficial/",
+          twitterUrl: "https://twitter.com/unsamoficial",
+          webUrl: "https://unsam.edu.ar",
+          copyright: "&copy; 2026 Escuela de Economía y Negocios - UNSAM. Todos los derechos reservados."
+        }
+      }
+    ]
+  },
+
+  doctorado_economia_innovacion_cerrada: {
+    name: "Doctorado en Economía de la Innovación - Inscripciones Cerradas",
+    emailTitle: "Doctorado en Economía de la Innovación - UNSAM",
+    blocks: [] // will be loaded dynamically by copying doctorado_economia_innovacion_abierta and modifying the alert
   }
 };
 
@@ -1451,5 +1623,14 @@ if (doctoradoAlertBlock) {
   doctoradoAlertBlock.data.alertTitle = "Estado de postulaciones";
   doctoradoAlertBlock.data.alertContent = "Actualmente las preinscripciones y postulaciones se encuentran <strong>cerradas</strong>. Podés aprovechar este lapso para reunir la documentación obligatoria detallada a continuación. La postulación se realiza enviando toda la documentación completa en un único archivo PDF a esta casilla de correo.";
 }
+
+DEFAULT_TEMPLATES.doctorado_economia_innovacion_cerrada.blocks = JSON.parse(JSON.stringify(DEFAULT_TEMPLATES.doctorado_economia_innovacion_abierta.blocks));
+const ecoInnovAlertBlock = DEFAULT_TEMPLATES.doctorado_economia_innovacion_cerrada.blocks.find(b => b.type === "alert");
+if (ecoInnovAlertBlock) {
+  ecoInnovAlertBlock.data.alertType = "danger";
+  ecoInnovAlertBlock.data.alertTitle = "Estado de postulaciones";
+  ecoInnovAlertBlock.data.alertContent = "Actualmente las preinscripciones y postulaciones se encuentran <strong>cerradas</strong>. Podés aprovechar este lapso para reunir la documentación obligatoria detallada a continuación. La postulación se realiza enviando toda la documentación completa en un único archivo PDF a esta casilla de correo.";
+}
+
 
 
