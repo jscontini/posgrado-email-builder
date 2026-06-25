@@ -76,16 +76,28 @@ export const BLOCK_TEMPLATES = {
   alert: {
     name: "Alerta de Estado",
     schema: {
-      alertType: { type: "select", label: "Tipo de Alerta", options: ["success", "danger"] },
+      alertType: { type: "select", label: "Tipo de Alerta", options: ["success", "danger", "warning"] },
       alertTitle: { type: "text", label: "Título de la Alerta" },
       alertContent: { type: "textarea", label: "Contenido (HTML permitido)" }
     },
     render: (data) => {
-      const isSuccess = data.alertType === "success";
-      const bgColor = isSuccess ? "#ecfdf5" : "#fef2f2";
-      const borderColor = isSuccess ? "#10b981" : "#ef4444";
-      const textColor = isSuccess ? "#047857" : "#991b1b";
-      const bodyColor = isSuccess ? "#065f46" : "#7f1d1d";
+      let bgColor = "#fef2f2";
+      let borderColor = "#ef4444";
+      let textColor = "#991b1b";
+      let bodyColor = "#7f1d1d";
+
+      if (data.alertType === "success") {
+        bgColor = "#ecfdf5";
+        borderColor = "#10b981";
+        textColor = "#047857";
+        bodyColor = "#065f46";
+      } else if (data.alertType === "warning") {
+        bgColor = "#fffbeb";
+        borderColor = "#f59e0b";
+        textColor = "#b45309";
+        bodyColor = "#78350f";
+      }
+
       return `
       <!-- Alerta de Estado -->
       <tr>
@@ -704,6 +716,50 @@ export const BLOCK_TEMPLATES = {
                 <div style="font-size: 11px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                   ${data.copyright}
                 </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>`
+  },
+
+  singleButton: {
+    name: "Botón de Llamado a la Acción",
+    schema: {
+      btnText: { type: "text", label: "Texto del Botón" },
+      btnUrl: { type: "text", label: "Enlace (URL)" },
+      btnBgColor: { type: "color", label: "Color de Fondo del Botón" }
+    },
+    render: (data) => `
+      <!-- Botón de Acceso CTA -->
+      <tr>
+        <td align="center" style="padding: 10px 40px 25px 40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; width: 100%; max-width: 400px;">
+            <tr>
+              <td align="center" style="background-color: ${data.btnBgColor || '#254194'}; border-radius: 4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                <a href="${data.btnUrl}" target="_blank" style="display: block; color: #ffffff; background-color: ${data.btnBgColor || '#254194'}; border: solid 1px ${data.btnBgColor || '#254194'}; border-radius: 4px; padding: 12px 20px; text-decoration: none; font-size: 14px; font-weight: bold; letter-spacing: 0.5px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                  ${data.btnText}
+                </a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>`
+  },
+
+  infoBox: {
+    name: "Nota Aclaratoria / Recuadro",
+    schema: {
+      text: { type: "textarea", label: "Contenido (HTML permitido)" }
+    },
+    render: (data) => `
+      <!-- Cuadro de Aclaración Institucional (footnote) -->
+      <tr>
+        <td style="padding: 0 40px 30px 40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; border-collapse: separate;">
+            <tr>
+              <td style="padding: 15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12.5px; color: #64748b; line-height: 1.5; text-align: justify;">
+                ${data.text}
               </td>
             </tr>
           </table>
@@ -1588,6 +1644,74 @@ export const DEFAULT_TEMPLATES = {
     name: "Doctorado en Economía de la Innovación - Inscripciones Cerradas",
     emailTitle: "Doctorado en Economía de la Innovación - UNSAM",
     blocks: [] // will be loaded dynamically by copying doctorado_economia_innovacion_abierta and modifying the alert
+  },
+
+  invitacion_charla_informativa: {
+    name: "Invitación a Charla Informativa",
+    emailTitle: "Invitación a Charla Informativa - UNSAM",
+    blocks: [
+      {
+        type: "header",
+        data: {
+          headerImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1733852426/head-tall_ki4s6p.png",
+          headerImageAlt: "Charla Informativa - UNSAM"
+        }
+      },
+      {
+        type: "intro",
+        data: {
+          saludo: "Estimado/a,",
+          introText: `Te recordamos que hoy a las <strong>11:00 Hs</strong> se realizará una nueva charla informativa virtual correspondiente al: <a href="https://eeyn.unsam.edu.ar/" target="_blank" style="color: #254194; font-weight: bold; text-decoration: underline;"><strong>Doctorado en Economía de la Innovación</strong></a> de la Escuela de Economía y Negocios.<br><br>Le compartimos a continuación el enlace para poder ingresar a la reunión:`
+        }
+      },
+      {
+        type: "singleButton",
+        data: {
+          btnText: "ACCEDER A LA CHARLA VIRTUAL",
+          btnUrl: "https://example.com/enlace-charla-virtual",
+          btnBgColor: "#254194"
+        }
+      },
+      {
+        type: "alert",
+        data: {
+          alertType: "warning",
+          alertTitle: "IMPORTANTE",
+          alertContent: "La reunión <strong>no cuenta con sala de espera</strong>, por lo que le pedimos aguardar unos minutos con paciencia; todos los participantes serán admitidos una vez que la charla comience."
+        }
+      },
+      {
+        type: "infoBox",
+        data: {
+          text: "<strong>Nota aclaratoria:</strong> La participación en las charlas informativas de posgrado de la Escuela de Economía y Negocios no es válida ni computable para el cumplimiento del módulo “Habitar la Universidad”."
+        }
+      },
+      {
+        type: "closing",
+        data: {
+          closingText: `<div style="font-size: 14px; color: #475569; margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: bold; text-align: center;">
+            ¡Esperamos contar con su presencia!
+          </div>`
+        }
+      },
+      {
+        type: "signature",
+        data: {
+          signatureImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1713991851/signaturefooter_lxydwu.png",
+          signatureImageAlt: "Firma y Contacto"
+        }
+      },
+      {
+        type: "footer",
+        data: {
+          linkedinUrl: "https://ar.linkedin.com/company/eeyn-unsam",
+          instagramUrl: "https://www.instagram.com/eeyn_unsam",
+          twitterUrl: "https://x.com/eeyn_unsam",
+          webUrl: "https://unsam.edu.ar",
+          copyright: "&copy; 2026 Escuela de Economía y Negocios - UNSAM. Todos los derechos reservados."
+        }
+      }
+    ]
   }
 };
 
