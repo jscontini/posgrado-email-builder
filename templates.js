@@ -76,7 +76,7 @@ export const BLOCK_TEMPLATES = {
   alert: {
     name: "Alerta de Estado",
     schema: {
-      alertType: { type: "select", label: "Tipo de Alerta", options: ["success", "danger", "warning"] },
+      alertType: { type: "select", label: "Tipo de Alerta", options: ["success", "danger", "warning", "info"] },
       alertTitle: { type: "text", label: "Título de la Alerta" },
       alertContent: { type: "textarea", label: "Contenido (HTML permitido)" }
     },
@@ -96,6 +96,11 @@ export const BLOCK_TEMPLATES = {
         borderColor = "#f59e0b";
         textColor = "#b45309";
         bodyColor = "#78350f";
+      } else if (data.alertType === "info") {
+        bgColor = "#f5f7fb";
+        borderColor = "#254194";
+        textColor = "#254194";
+        bodyColor = "#475569";
       }
 
       return `
@@ -1692,6 +1697,79 @@ export const DEFAULT_TEMPLATES = {
           closingText: `<div style="font-size: 14px; color: #475569; margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: bold; text-align: center;">
             ¡Esperamos contar con su presencia!
           </div>`
+        }
+      },
+      {
+        type: "signature",
+        data: {
+          signatureImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1713991851/signaturefooter_lxydwu.png",
+          signatureImageAlt: "Firma y Contacto"
+        }
+      },
+      {
+        type: "footer",
+        data: {
+          linkedinUrl: "https://ar.linkedin.com/company/eeyn-unsam",
+          instagramUrl: "https://www.instagram.com/eeyn_unsam",
+          twitterUrl: "https://x.com/eeyn_unsam",
+          webUrl: "https://unsam.edu.ar",
+          copyright: "&copy; 2026 Escuela de Economía y Negocios - UNSAM. Todos los derechos reservados."
+        }
+      }
+    ]
+  },
+
+  plantilla_para_todo_uso: {
+    name: "Plantilla Genérica / Todo Uso",
+    emailTitle: "Plantilla Genérica de Correo - UNSAM",
+    blocks: [
+      {
+        type: "header",
+        data: {
+          headerImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1782495483/unnamed_sc5anc.jpg",
+          headerImageAlt: "Cabecera Oficial - UNSAM"
+        }
+      },
+      {
+        type: "intro",
+        data: {
+          saludo: "Estimado/a,",
+          introText: `Este es un párrafo de ejemplo para que puedas redactar el contenido de tu correo electrónico. Puedes modificar directamente este texto una vez que pegues el diseño dentro del editor de Gmail o de tu cliente de correos preferido.<br><br>La estructura modular de esta plantilla te permite agregar múltiples párrafos, listas con viñetas o botones de llamado a la acción según las necesidades específicas de la comunicación.`
+        }
+      },
+      {
+        type: "alert",
+        data: {
+          alertType: "info",
+          alertTitle: "Bloque Destacado / Aclaración",
+          alertContent: "Este cuadro es ideal para destacar información clave, avisos administrativos, fechas límites o requisitos específicos. Su fondo grisáceo suave y el borde izquierdo azul atraen la atención del lector de manera elegante."
+        }
+      },
+      {
+        type: "targetAudience",
+        data: {
+          sectionTitle: "Listado de Puntos Importantes:",
+          introText: "",
+          item1Title: "Punto principal uno:",
+          item1Text: "Aquí puedes ingresar detalles de cursada, horarios o requisitos específicos.",
+          item2Title: "Punto principal dos:",
+          item2Text: "Un renglón de texto adicional para describir aranceles, plazos o documentación.",
+          item3Title: "Punto principal tres:",
+          item3Text: "Cualquier otra aclaración institucional que requiera un orden visual limpio."
+        }
+      },
+      {
+        type: "singleButton",
+        data: {
+          btnText: "BOTÓN DE ACCIÓN / ENLACE WEB",
+          btnUrl: "https://eeyn.unsam.edu.ar/",
+          btnBgColor: "#254194"
+        }
+      },
+      {
+        type: "closing",
+        data: {
+          closingText: "Quedamos a tu entera disposición ante cualquier consulta o inquietud.<br><br>Atentamente,"
         }
       },
       {
