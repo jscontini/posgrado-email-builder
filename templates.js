@@ -795,8 +795,8 @@ export const DEFAULT_TEMPLATES = {
       {
         type: "intro",
         data: {
-          saludo: "Estimado/a,",
-          introText: `Nos complace saber que la <a href="https://www.unsam.edu.ar/escuelas/eeyn/697/economia/finanzas" target="_blank" rel="noopener noreferrer" style="color: #254194; font-weight: bold; text-decoration: underline;"><strong>Maestría en Finanzas</strong></a> de la UNSAM ha despertado tu interés para continuar tu formación académica. A continuación, te compartimos toda la información detallada del programa académico, el cronograma de cursada y los requisitos necesarios para efectuar tu postulación.`
+          saludo: "Estimado/a:",
+          introText: `Nos complace saber que la <strong><a href="https://www.unsam.edu.ar/escuelas/eeyn/697/economia/finanzas" target="_blank" rel="noopener noreferrer" style="color: #254194; font-weight: bold; text-decoration: underline;">Maestría en Finanzas</a></strong> despertó un interés para continuar con tu formación académica. A continuación te compartimos toda la información necesaria para que puedas efectuar tu postulación.`
         }
       },
       {
@@ -804,7 +804,7 @@ export const DEFAULT_TEMPLATES = {
         data: {
           alertType: "success",
           alertTitle: "Inscripciones Abiertas",
-          alertContent: `El período de postulación a la Maestría en Finanzas se encuentra <strong>abierto desde el 20 de octubre hasta el 12 de diciembre</strong>. Para efectuar tu postulación, deberás enviar la documentación obligatoria detallada a continuación, en su conjunto y en formato PDF, respondiendo a esta casilla de correo.`
+          alertContent: `El período de postulación a la Maestría en Finanzas se encuentra abierto desde el <strong>26 de octubre hasta el 11 de diciembre</strong>. Para efectuar tu postulación, deberás enviar la documentación obligatoria detallada a continuación, en su conjunto y en formato PDF, respondiendo a esta casilla de correo.`
         }
       },
       {
@@ -813,7 +813,7 @@ export const DEFAULT_TEMPLATES = {
           sectionTitle: "Información General y Cursada",
           card1Label: "Duración y Modalidad",
           card1Value: "2 Años - Híbrida",
-          card1Text: "Cursada mixta: <strong>55% presencial</strong> y <strong>45% virtual</strong>. La semana que se cursa presencial, no se cursa virtual.",
+          card1Text: "La cursada se desarrolla bajo modalidad híbrida, con un 55% de carga horaria presencial y un 45% virtual.",
           card2Label: "Sede de Cursada",
           card2Value: "Edificio Volta (UNSAM)",
           card2Text: `<a href="https://www.google.com/maps/place/Unsam+Posgrados/@-34.6055625,-58.3784183,15z/data=!4m6!3m5!1s0x95bccace13e1d0cd:0x3d2442f10b919226!8m2!3d-34.6055625!4d-58.3784183!16s%2Fg%2F11b_02bj05?entry=ttu" target="_blank" rel="noopener noreferrer" style="color: #254194; text-decoration: underline;">Piso 2, Av. Presidente Roque Sáenz Peña 832, CABA. Ubicación céntrica y de fácil acceso.</a>`,
@@ -834,18 +834,19 @@ export const DEFAULT_TEMPLATES = {
         type: "admission",
         data: {
           sectionTitle: "Admisión y Documentación",
-          admissionCondition: "Podrán postularse graduados/as de carreras universitarias de grado con planes de estudio de no menos de 4 años de duración y 2600 horas reloj. Excepciones a este requisito serán evaluadas de forma individual por el Comité Académico.",
+          admissionCondition: "Podrán postularse graduados/as de carreras universitarias de grado con planes de estudio de no menos de 4 años de duración y 2600 horas reloj. Las excepciones a este requisito serán evaluadas de forma individual por el Comité Académico y la Secretaria de Posgrados.",
           requirementsTitle: "Lista de Documentación a Presentar:",
           doc1: "<strong>CV académico y profesional</strong> actualizado, con foto digital integrada.",
           doc2: "<strong>Ficha de preinscripción</strong> con código QR visible. No se admitirán capturas de pantalla de la misma. El trámite se inicia en el portal <a href='https://guarani3.unsam.edu.ar/preinscripcion/unsam/acceso' target='_blank' style='color: #254194; font-weight: bold; text-decoration: underline;'>SIU-Preinscripción</a>.",
           doc3: "<strong>DNI</strong> escaneado legible (frente y dorso).",
-          doc4: "<strong>Partida de Nacimiento</strong> completa.",
-          doc5: "<strong>Título de grado</strong> de 4 años de duración o superior (frente y dorso).",
-          doc6: "<strong>Certificado analítico de grado</strong> detallado (frente y dorso).",
-          doc7: "<strong>Acreditación de inglés:</strong> Constancia de capacidad de lectura y comprensión de textos en inglés. En su defecto, se puede presentar una carta firmada declarando formalmente dicha capacidad de lecto-comprensión.",
-          doc8: "<strong>Dos cartas de recomendación</strong> académicas y/o profesionales debidamente firmadas.",
+          doc4: "<strong>Partida de Nacimiento</strong> legible. (Es valida la partida digital)",
+          doc5: "<strong>Título de grado</strong> legalizado de 4 años de duración o superior (frente y dorso).",
+          doc6: "<strong>Certificado analítico de grado</strong> sellado y firmado (frente y dorso).",
+          doc7: "<strong>Acreditación de inglés:</strong> constancia de capacidad de lectura y comprensión de textos en inglés. De no contar con un certificado, puede redactar una carta donde deje asentado su capacidad de lecto comprensión en dicho idioma",
+          doc8: "<strong>Dos cartas de recomendación</strong> debidamente firmadas. Pueden ser del ambito academico y/o profesional.",
           extraInfoTitle: "Títulos obtenidos en el extranjero:",
-          extraInfoText: `El diploma de grado y certificado analítico deben contar con las firmas legalizadas de la autoridad educativa del país emisor, visadas por el Consulado respectivo de la República Argentina o validadas con la <strong>Apostilla de La Haya</strong>.<br><br>Si la documentación original estuviese en un idioma distinto al español, deberá adjuntar la traducción pública correspondiente efectuada por un/a traductor/a público/a de registro, legalizada por el Colegio de Traductores Públicos (Av. Callao 289, CABA).`
+          extraInfoText: `El diploma de grado y el certificado analítico deberán contar con la firma de la autoridad educativa del país de origen certificada por el Consulado de la República Argentina correspondiente y legalizada por el Ministerio de Relaciones Exteriores de la Nación. <br>
+Quedarán exceptuados de dicha legalización los documentos emitidos en países adheridos al Convenio de La Haya, en cuyo caso deberá presentarse la <strong>Apostilla de La Haya</strong> correspondiente.</strong>.<br><br>En caso de que los documentos originales se encuentren redactados en idioma extranjero, deberá presentar una traducción de cada uno de ellos realizada por Traductor/a Público/a de Registro, y legalizada en el Colegio de Traductores Públicos (Av. Callao 289, Capital Federal).<br>`
         }
       },
       {
@@ -862,9 +863,9 @@ export const DEFAULT_TEMPLATES = {
               totalHours: "108 hs",
               totalCredits: "6,75",
               subjects: [
-                { name: "1.1 Instrumentos de Renta Fija y Renta Variable", duration: "Cuatrimestral", weekly: "2 hs", total: "36 hs", credits: "2,25" },
-                { name: "1.2 Tópicos de Macrofinanzas", duration: "Cuatrimestral", weekly: "2 hs", total: "36 hs", credits: "2,25" },
-                { name: "1.3 Derivados Financieros", duration: "Cuatrimestral", weekly: "2 hs", total: "36 hs", credits: "2,25" }
+                { name: "Instrumentos de Renta Fija y Renta Variable", duration: "Cuatrimestral", weekly: "2 hs", total: "36 hs", credits: "2,25" },
+                { name: "Tópicos de Macrofinanzas", duration: "Cuatrimestral", weekly: "2 hs", total: "36 hs", credits: "2,25" },
+                { name: "Derivados Financieros", duration: "Cuatrimestral", weekly: "2 hs", total: "36 hs", credits: "2,25" }
               ]
             },
             {
@@ -873,9 +874,9 @@ export const DEFAULT_TEMPLATES = {
               totalHours: "108 hs",
               totalCredits: "6,75",
               subjects: [
-                { name: "2.1 Fundamentos del Análisis Financiero", duration: "Cuatrimestral", weekly: "2 hs", total: "36 hs", credits: "2,25" },
-                { name: "2.2 Valuación de empresas", duration: "Cuatrimestral", weekly: "2 hs", total: "36 hs", credits: "2,25" },
-                { name: "2.3 Finanzas y Management Corporativo", duration: "Cuatrimestral", weekly: "2 hs", total: "36 hs", credits: "2,25" }
+                { name: "Fundamentos del Análisis Financiero", duration: "Cuatrimestral", weekly: "2 hs", total: "36 hs", credits: "2,25" },
+                { name: "Valuación de empresas", duration: "Cuatrimestral", weekly: "2 hs", total: "36 hs", credits: "2,25" },
+                { name: "Finanzas y Management Corporativo", duration: "Cuatrimestral", weekly: "2 hs", total: "36 hs", credits: "2,25" }
               ]
             },
             {
@@ -884,7 +885,12 @@ export const DEFAULT_TEMPLATES = {
               totalHours: "180 hs",
               totalCredits: "10,80",
               subjects: [
-                { name: "3.1 a 3.6 Materias Optativas (1 al 6)", duration: "Cuatrimestral", weekly: "2 hs (c/u)", total: "180 hs", credits: "10,80" }
+                { name: "Optativa 1", duration: "Cuatrimestral", weekly: "2 hs", total: "30 hs", credits: "1.8" },
+                { name: "Optativa 2", duration: "Cuatrimestral", weekly: "2 hs", total: "30 hs", credits: "1.8" },
+                { name: "Optativa 3", duration: "Cuatrimestral", weekly: "2 hs", total: "30 hs", credits: "1.8" },
+                { name: "Optativa 4", duration: "Cuatrimestral", weekly: "2 hs", total: "30 hs", credits: "1.8" },
+                { name: "Optativa 5", duration: "Cuatrimestral", weekly: "2 hs", total: "30 hs", credits: "1.8" },
+                { name: "Optativa 6", duration: "Cuatrimestral", weekly: "2 hs", total: "30 hs", credits: "1.8" }
               ]
             },
             {
@@ -893,9 +899,9 @@ export const DEFAULT_TEMPLATES = {
               totalHours: "144 hs",
               totalCredits: "8,10",
               subjects: [
-                { name: "4.1 Taller de Práctica Profesional", duration: "Anual", weekly: "2 hs", total: "72 hs", credits: "4,50" },
-                { name: "4.2 Taller de Trabajo Final I", duration: "Cuatrimestral", weekly: "3 hs", total: "36 hs", credits: "1,80" },
-                { name: "4.3 Taller de Trabajo Final II", duration: "Cuatrimestral", weekly: "3 hs", total: "36 hs", credits: "1,80" }
+                { name: "Taller de Práctica Profesional", duration: "Anual", weekly: "2 hs", total: "72 hs", credits: "4,50" },
+                { name: "Taller de Trabajo Final I", duration: "Cuatrimestral", weekly: "3 hs", total: "36 hs", credits: "1,80" },
+                { name: "Taller de Trabajo Final II", duration: "Cuatrimestral", weekly: "3 hs", total: "36 hs", credits: "1,80" }
               ]
             }
           ]
@@ -913,7 +919,7 @@ export const DEFAULT_TEMPLATES = {
           nonResidentCuotas: "20 Cuotas Mensuales",
           nonResidentMonto: "400 USD",
           nonResidentObs: "* Arancel vigente sujeto a modificación.",
-          discountText: "<strong>Beneficio Comunidad UNSAM:</strong> Se otorga un <strong>50% de descuento</strong> sobre las cuotas mensuales para miembros activos de la comunidad universitaria (egresados/as, docentes y nodocentes de UNSAM).",
+          discountText: "<strong>Beneficio Comunidad UNSAM:</strong> Se otorga un <strong>50% de descuento</strong> sobre las cuotas mensuales para miembros activos de la comunidad universitaria (egresados/as, docentes y nodocentes de UNSAM). Asimismo, se encuentran vigentes beneficios arancelarios establecidos mediante convenios específicos suscriptos con la Cámara Argentina de Turismo, la Comisión Nacional de Valores y para afiliados/as de ATE Capital.",
           paymentText: "<strong>Medios de Pago:</strong> Las opciones de pago se procesan a través del sistema <strong>SIRO</strong> (incluyendo cobros mediante código QR y diversas billeteras virtuales)."
         }
       },
@@ -942,7 +948,7 @@ export const DEFAULT_TEMPLATES = {
       {
         type: "closing",
         data: {
-          closingText: "Quedamos a tu entera disposición para resolver cualquier duda que tengas sobre la cursada o sobre el proceso de postulación.<br><br>Atentamente,"
+          closingText: "Quedamos a tu entera disposición para resolver cualquier duda que tengas sobre la cursada o sobre el proceso de postulación.<br> <br>¡Te esperamos! <br><br>Atentamente,"
         }
       },
       {
@@ -955,9 +961,9 @@ export const DEFAULT_TEMPLATES = {
       {
         type: "footer",
         data: {
-          linkedinUrl: "https://www.linkedin.com/school/unsam/",
-          instagramUrl: "https://www.instagram.com/unsamoficial/",
-          twitterUrl: "https://twitter.com/unsamoficial",
+          linkedinUrl: "https://ar.linkedin.com/company/eeyn-unsam",
+          instagramUrl: "https://www.instagram.com/eeyn_unsam",
+          twitterUrl: "https://x.com/eeyn_unsam",
           webUrl: "https://unsam.edu.ar",
           copyright: "&copy; 2026 Escuela de Economía y Negocios - UNSAM. Todos los derechos reservados."
         }
