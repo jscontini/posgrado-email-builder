@@ -492,6 +492,8 @@ function applyFormatting(inputEl, formatType) {
     prefix = '<strong>';
     suffix = '</strong>';
     replacement = prefix + (selectedText || 'texto en negrita') + suffix;
+  } else if (formatType === 'br') {
+    replacement = '<br>';
   } else if (formatType === 'italic') {
     prefix = '<em>';
     suffix = '</em>';
@@ -610,6 +612,7 @@ function renderEditor() {
           <label class="block text-[11px] font-semibold text-slate-400">${field.label}</label>
           <div class="flex items-center space-x-1">
             <button type="button" data-format-btn="strong" data-target-key="${key}" class="px-1.5 py-0.5 text-[9px] font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 hover:text-white transition-colors cursor-pointer" title="Negrita">B</button>
+            <button type="button" data-format-btn="br" data-target-key="${key}" class="px-1.5 py-0.5 text-[9px] bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 hover:text-white transition-colors cursor-pointer font-semibold" title="Salto de línea (br)">Salto</button>
             <button type="button" data-format-btn="italic" data-target-key="${key}" class="px-1.5 py-0.5 text-[9px] italic bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 hover:text-white transition-colors cursor-pointer" title="Cursiva">I</button>
             <button type="button" data-format-btn="link" data-target-key="${key}" class="px-1.5 py-0.5 text-[9px] bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 hover:text-white transition-colors cursor-pointer" title="Enlace (Nueva ventana)">🔗</button>
             <button type="button" data-format-btn="list" data-target-key="${key}" class="px-1.5 py-0.5 text-[9px] bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 hover:text-white transition-colors cursor-pointer" title="Lista">• Lista</button>
