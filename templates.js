@@ -770,6 +770,24 @@ export const BLOCK_TEMPLATES = {
           </table>
         </td>
       </tr>`
+  },
+
+  lineBreak: {
+    name: "Salto",
+    schema: {
+      height: { type: "text", label: "Altura del espacio (ej: 20px)" }
+    },
+    render: (data) => {
+      let height = (data.height || '20').toString().trim();
+      if (!height.endsWith('px') && !height.endsWith('%')) {
+        height = height + 'px';
+      }
+      return `
+        <!-- Salto -->
+        <tr>
+          <td style="font-size: 1px; line-height: ${height}; height: ${height};">&nbsp;</td>
+        </tr>`;
+    }
   }
 };
 

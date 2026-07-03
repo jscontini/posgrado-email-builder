@@ -166,6 +166,9 @@ const BLOCK_DEFAULTS = {
     twitterUrl: "https://twitter.com/unsamoficial",
     webUrl: "https://unsam.edu.ar",
     copyright: "&copy; 2026 Escuela de Economía y Negocios - UNSAM. Todos los derechos reservados."
+  },
+  lineBreak: {
+    height: "20px"
   }
 };
 
