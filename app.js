@@ -40,6 +40,8 @@ const saveStatusDetail = document.getElementById('saveStatusDetail');
 const toastContainer = document.getElementById('toastContainer');
 const historyListContainer = document.getElementById('historyListContainer');
 const refreshHistoryBtn = document.getElementById('refreshHistoryBtn');
+const btnSetCurrentAsBase = document.getElementById('btnSetCurrentAsBase');
+const btnResetBase = document.getElementById('btnResetBase');
 
 // Valores por defecto para la creación de nuevos bloques individuales
 const BLOCK_DEFAULTS = {
@@ -191,25 +193,66 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// Obtener plantilla base efectiva (predeterminada o personalizada por el usuario)
+function getEffectiveBaseTemplate(templateId) {
+  const customKey = `custom_base_${templateId}`;
+  const customData = localStorage.getItem(customKey);
+  const defaultTpl = DEFAULT_TEMPLATES[templateId];
+
+  if (customData) {
+    try {
+      const parsed = JSON.parse(customData);
+      return {
+        name: (defaultTpl ? defaultTpl.name : templateId),
+        isCustomBase: true,
+        emailTitle: parsed.emailTitle || (defaultTpl ? defaultTpl.emailTitle : ''),
+        blocks: parsed.blocks || []
+      };
+    } catch (e) {
+      console.error('Error al parsear plantilla base personalizada:', e);
+    }
+  }
+
+  return defaultTpl;
+}
+
+// Mostrar u ocultar el botón de restablecer base
+function updateResetBaseButtonVisibility() {
+  if (!btnResetBase) return;
+  const hasCustomBase = !!localStorage.getItem(`custom_base_${state.currentTemplateId}`);
+  if (hasCustomBase) {
+    btnResetBase.classList.remove('hidden');
+  } else {
+    btnResetBase.classList.add('hidden');
+  }
+}
+
 // 1. Cargar el selector de plantillas base en el panel izquierdo
 function setupBaseTemplatesSelector() {
   templateBaseSelector.innerHTML = '';
   Object.keys(DEFAULT_TEMPLATES).forEach(key => {
     const option = document.createElement('option');
     option.value = key;
-    option.textContent = DEFAULT_TEMPLATES[key].name;
+    const hasCustomBase = !!localStorage.getItem(`custom_base_${key}`);
+    const baseName = DEFAULT_TEMPLATES[key].name;
+    option.textContent = hasCustomBase ? `${baseName} ⭐ (Base Personalizada)` : baseName;
     templateBaseSelector.appendChild(option);
   });
 
   templateBaseSelector.value = state.currentTemplateId;
-  templateBaseSelector.addEventListener('change', (e) => {
-    if (confirm('¿Estás seguro de cambiar de plantilla base? Perderás los cambios no guardados en el canvas.')) {
-      state.currentTemplateId = e.target.value;
-      loadTemplate(state.currentTemplateId);
-    } else {
-      templateBaseSelector.value = state.currentTemplateId;
-    }
-  });
+  updateResetBaseButtonVisibility();
+
+  if (!templateBaseSelector.dataset.hasListener) {
+    templateBaseSelector.dataset.hasListener = "true";
+    templateBaseSelector.addEventListener('change', (e) => {
+      if (confirm('¿Estás seguro de cambiar de plantilla base? Perderás los cambios no guardados en el canvas.')) {
+        state.currentTemplateId = e.target.value;
+        loadTemplate(state.currentTemplateId);
+      } else {
+        templateBaseSelector.value = state.currentTemplateId;
+      }
+    });
+  }
 }
 
 // 2. Cargar botones en el panel de añadir bloques del panel izquierdo
@@ -273,11 +316,53 @@ function setupEventListeners() {
   btnDownloadHtml.addEventListener('click', downloadCompiledHTML);
   btnSaveKV.addEventListener('click', saveToCloudflareKV);
   loadBtn.addEventListener('click', loadFromCloudflareKV);
+
+  if (btnSetCurrentAsBase) {
+    btnSetCurrentAsBase.addEventListener('click', setCurrentDesignAsBase);
+  }
+  if (btnResetBase) {
+    btnResetBase.addEventListener('click', resetCurrentBaseTemplate);
+  }
+}
+
+// Fijar el diseño actual del canvas como plantilla base
+function setCurrentDesignAsBase() {
+  const templateId = state.currentTemplateId;
+  const templateName = DEFAULT_TEMPLATES[templateId]?.name || templateId;
+
+  if (confirm(`¿Deseas fijar el diseño actual del canvas como la nueva Plantilla Base para "${templateName}"?`)) {
+    const payload = {
+      templateId: templateId,
+      emailTitle: state.emailTitle,
+      blocks: JSON.parse(JSON.stringify(state.blocks)),
+      updatedAt: new Date().toISOString()
+    };
+
+    localStorage.setItem(`custom_base_${templateId}`, JSON.stringify(payload));
+    setupBaseTemplatesSelector();
+    templateBaseSelector.value = templateId;
+    updateResetBaseButtonVisibility();
+    showToast(`⭐ "${templateName}" fijada como Plantilla Base`, 'success');
+  }
+}
+
+// Restablecer la plantilla base original por defecto
+function resetCurrentBaseTemplate() {
+  const templateId = state.currentTemplateId;
+  const templateName = DEFAULT_TEMPLATES[templateId]?.name || templateId;
+
+  if (confirm(`¿Estás seguro de restablecer la plantilla base original por defecto para "${templateName}"?`)) {
+    localStorage.removeItem(`custom_base_${templateId}`);
+    setupBaseTemplatesSelector();
+    templateBaseSelector.value = templateId;
+    loadTemplate(templateId);
+    showToast(`Plantilla base de "${templateName}" restablecida a la de fábrica`, 'info');
+  }
 }
 
 // 5. Cargar plantilla base seleccionada en el estado
 function loadTemplate(templateId) {
-  const baseTpl = DEFAULT_TEMPLATES[templateId];
+  const baseTpl = getEffectiveBaseTemplate(templateId);
   if (!baseTpl) return;
 
   state.emailTitle = baseTpl.emailTitle;
@@ -292,6 +377,7 @@ function loadTemplate(templateId) {
   state.selectedBlockId = null;
   renderCanvas();
   renderEditor();
+  updateResetBaseButtonVisibility();
   
   if (state.viewMode === 'preview') {
     updatePreview();
@@ -1103,6 +1189,20 @@ async function loadHistory() {
       loadFromCloudflareKV();
     });
 
+    // Botón designar como plantilla base (Estrella)
+    const makeBaseBtn = document.createElement('button');
+    makeBaseBtn.className = "px-2 bg-slate-800/40 hover:bg-amber-950/60 border border-editorBorder hover:border-amber-500/50 rounded flex items-center justify-center text-slate-500 hover:text-amber-400 transition-all active:scale-[0.95] shrink-0";
+    makeBaseBtn.title = "Fijar esta versión como la Plantilla Base para esta carrera";
+    makeBaseBtn.innerHTML = `
+      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+      </svg>
+    `;
+    makeBaseBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setHistoryItemAsBase(item);
+    });
+
     // Botón borrar (tacho de basura)
     const deleteBtn = document.createElement('button');
     deleteBtn.className = "px-2 bg-slate-800/40 hover:bg-red-950 border border-editorBorder hover:border-red-500/50 rounded flex items-center justify-center text-slate-500 hover:text-red-400 transition-all active:scale-[0.95] shrink-0";
@@ -1118,9 +1218,55 @@ async function loadHistory() {
     });
 
     itemContainer.appendChild(itemBtn);
+    itemContainer.appendChild(makeBaseBtn);
     itemContainer.appendChild(deleteBtn);
     historyListContainer.appendChild(itemContainer);
   });
+}
+
+// 22. Designar una versión del historial como la plantilla base de la carrera
+async function setHistoryItemAsBase(item) {
+  try {
+    let payload = null;
+    if (item.id.startsWith('local_')) {
+      const raw = localStorage.getItem(`template_${item.id}`);
+      if (raw) payload = JSON.parse(raw);
+    } else {
+      const res = await fetch(`/api/load?id=${item.id}`);
+      if (res.ok) {
+        payload = await res.json();
+      }
+    }
+
+    if (!payload || !payload.blocks) {
+      showToast('No se pudieron recuperar los bloques de esta versión', 'danger');
+      return;
+    }
+
+    const targetTemplateId = payload.templateId || item.templateId || state.currentTemplateId;
+    const templateName = DEFAULT_TEMPLATES[targetTemplateId]?.name || targetTemplateId;
+
+    if (confirm(`¿Deseas designar la versión "${item.id}" como la Plantilla Base para "${templateName}"?`)) {
+      const basePayload = {
+        templateId: targetTemplateId,
+        emailTitle: payload.emailTitle || '',
+        blocks: payload.blocks,
+        updatedAt: new Date().toISOString()
+      };
+
+      localStorage.setItem(`custom_base_${targetTemplateId}`, JSON.stringify(basePayload));
+      setupBaseTemplatesSelector();
+
+      if (state.currentTemplateId === targetTemplateId) {
+        loadTemplate(targetTemplateId);
+      }
+
+      showToast(`⭐ Versión ${item.id} designada como Plantilla Base de "${templateName}"`, 'success');
+    }
+  } catch (err) {
+    console.error('Error al designar versión como plantilla base:', err);
+    showToast('Error al procesar la versión como plantilla base', 'danger');
+  }
 }
 
 // 22. Eliminar una versión del historial (Local o Cloudflare KV)
