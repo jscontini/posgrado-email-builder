@@ -1879,6 +1879,142 @@ Quedarán exceptuados de dicha legalización los documentos emitidos en países 
     blocks: [] // will be loaded dynamically by copying turismo_abierta and modifying the alert
   },
 
+  especializacion_turismo_abierta: {
+    name: "Especialización en Economía y Desarrollo del Turismo - Inscripciones Abiertas",
+    emailTitle: "Especialización en Economía y Desarrollo del Turismo - EEyN UNSAM",
+    blocks: [
+      {
+        type: "header",
+        data: {
+          headerImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1782495483/unnamed_sc5anc.jpg",
+          headerImageAlt: "Especialización en Economía y Desarrollo del Turismo - EEyN UNSAM"
+        }
+      },
+      {
+        type: "intro",
+        data: {
+          saludo: "Estimado/a, es un gusto saludarte.",
+          introText: `Nos complace saber que nuestra <a href="https://www.unsam.edu.ar/escuelas/eeyn/700/economia/desarrollo-turismo" target="_blank" rel="noopener noreferrer" style="color: #254194; font-weight: bold; text-decoration: underline;"><strong>Especialización en Economía y Desarrollo del Turismo</strong></a> logró despertar un interés para continuar con tu formación académica.<br><br>A continuación te compartimos toda la información necesaria para que puedas efectuar tu postulación, consideramos esta crucial y valiosa para ayudarte a tomar una decisión informada sobre la continuidad de tus estudios.<br><br>La Especialización en Economía y Desarrollo del Turismo busca formar profesionales capaces de comprender un fenómeno social de contenido económico que requiere de un tratamiento multidisciplinario. Este programa entiende a la actividad turística con una visión global, apoyándose en la cultura y la naturaleza como insumos para el diseño de productos que propicien el desarrollo y promuevan la gestión local y regional de las áreas y destinos turísticos integrando a las comunidades asentadas en dichas áreas.`
+        }
+      },
+      {
+        type: "alert",
+        data: {
+          alertType: "success",
+          alertTitle: "Período de Postulación",
+          alertContent: "Las postulaciones estarán habilitadas del <strong>26/10/2026 al 11/12/2026</strong>. Para efectuar la postulación deberá enviar la documentación solicitada, en su conjunto y en formato PDF, a esta casilla de correo."
+        }
+      },
+      {
+        type: "generalInfo",
+        data: {
+          sectionTitle: "Información General y Cursada",
+          card1Label: "Duración y Modalidad",
+          card1Value: "3 Cuatrimestres",
+          card1Text: "La duración de la Especialización en Economía y Desarrollo del Turismo es de <strong>3 cuatrimestres</strong>. La modalidad de cursada es <strong>a distancia, con clases sincrónicas</strong>.",
+          card2Label: "Modalidad de Cursada",
+          card2Value: "A Distancia",
+          card2Text: "Clases sincrónicas a distancia a través del Campus Virtual de la UNSAM.",
+          card3Label: "Esquema Horario de Cursada",
+          card3Bullet1: "<strong>Jueves y Viernes:</strong> De 18:00 a 21:00 hs.",
+          card3Bullet2: "<strong>Sábados:</strong> De 9:00 a 13:00 hs.",
+          card3Footer: "* Modalidad a distancia con clases sincrónicas."
+        }
+      },
+      {
+        type: "targetAudience",
+        data: {
+          sectionTitle: "Condiciones de Admisión",
+          introText: "Podrán ingresar a la especialización los/las graduados/as de carreras del área de las Ciencias Sociales provenientes de universidades nacionales o privadas, o con títulos extranjeros de carreras equivalentes a las nacionales, cuya duración no sea inferior a cuatro años y 2600 horas.",
+          item1Title: "Requisitos de Carga Horaria y Grado:",
+          item1Text: "Carreras del área de Ciencias Sociales de 4 años o más y 2600 horas reloj como mínimo.",
+          item2Title: "Evaluación de Excepciones:",
+          item2Text: "Las excepciones sobre esta cuestión serán evaluadas por el Comité Académico, quien determinará si el/la postulante reúne las condiciones necesarias para ser admitido/a a la carrera e indicará las actividades formativas que eventualmente en cada caso tengan que realizar cada uno de los/las postulantes.",
+          item3Title: "Criterios de Valoración y Entrevista:",
+          item3Text: "El Comité Académico y la Dirección de la carrera decidirán la admisión de postulantes en base al análisis de sus antecedentes y, a consideración del Comité Académico y la Dirección, realizar una entrevista que estará a cargo de la Dirección de la Carrera."
+        }
+      },
+      {
+        type: "admission",
+        data: {
+          sectionTitle: "Documentación Obligatoria",
+          admissionCondition: "Para efectuar la postulación deberá enviar la documentación solicitada, en su conjunto y en formato PDF, a esta casilla de correo:",
+          requirementsTitle: "Lista de Documentación a Presentar:",
+          doc1: "<strong>CV académico y profesional</strong> actualizado, que incluya una foto digital.",
+          doc2: "<strong>Ficha de preinscripción</strong> con el QR correspondiente. No se tomarán como válidas capturas de pantalla. Acceso en <a href='https://guarani3.unsam.edu.ar/preinscripcion/unsam/acceso' target='_blank' style='color: #254194; font-weight: bold; text-decoration: underline;'>SIU-Preinscripción</a>.",
+          doc3: "<strong>DNI</strong> (Frente y dorso).",
+          doc4: "<strong>Título de grado</strong> de 4 años o más (Frente y dorso).",
+          doc5: "<strong>Certificado analítico de grado</strong> (Frente y dorso).",
+          doc6: "<strong>Partida de Nacimiento</strong> (Frente y dorso).",
+          doc7: "<strong>Acreditar capacidad para leer y comprender textos editados en idioma inglés</strong> (en caso de no contar con un certificado, puede redactar una carta donde deje asentado su capacidad de lecto comprensión en dicho idioma).",
+          doc8: "<strong>Dos cartas de recomendación</strong> (Pueden ser del ámbito académico y/o profesional).",
+          extraInfoTitle: "En caso de título emitido por entidad extranjera:",
+          extraInfoText: `1. El diploma de grado y el certificado analítico, con la firma de la autoridad educacional del país de origen certificada en el consulado respectivo de la República Argentina y validada en el Ministerio de Relaciones Exteriores de la Nación. Quedarán exceptuados aquellos países que hayan suscripto al Convenio de La Haya, en cuyo caso deberán presentar la apostilla correspondiente.<br><br>2. En caso de que los documentos originales se encuentren redactados en idioma extranjero, deberá presentar una traducción de cada uno de ellos realizada por Traductor/a Público/a de Registro, y legalizada en el Colegio de Traductores Públicos (Av. Callao 289, Capital Federal).`
+        }
+      },
+      {
+        type: "tuition",
+        data: {
+          sectionTitle: "Aranceles y Medios de Pago",
+          residentTitle: "Postulantes Residentes",
+          residentCuotas: "15 Cuotas Mensuales",
+          residentMonto: "$300.000.-",
+          residentObs: "* Cuotas mensuales consecutivas.",
+          nonResidentTitle: "Extranjeras/os No Residentes",
+          nonResidentCuotas: "15 Cuotas Mensuales",
+          nonResidentMonto: "240 USD",
+          nonResidentObs: "* Cuotas mensuales consecutivas.",
+          discountText: "Existe un <strong>50% de descuento</strong> para miembros de la Comunidad UNSAM (egresados, docentes y no docentes de nuestra universidad).",
+          paymentText: "<strong>Aclaración:</strong> Los precios están sujetos a modificación."
+        }
+      },
+      {
+        type: "cta",
+        data: {
+          sectionTitle: "Charlas Informativas y Consultas",
+          charlaLabel: "Para notificarte de la próxima charla informativa deberás inscribirte:",
+          charlaUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeOFIgYiN4uoG3lNVX-ObqbHlOPtWrGgsz6AgwL90KUc5QftA/viewform",
+          charlaBtnText: "INSCRIBIRME AQUÍ",
+          whatsappLabel: "Contacto directo por WhatsApp / Consultas:",
+          whatsappUrl: "https://wa.me/541168083537",
+          whatsappBtnText: "WHATSAPP INFORMATIVO",
+          videoLabel: "Te compartimos la información de nuestra Maestría y Especialización en Economía y Desarrollo del Turismo:",
+          videoUrl: "https://eeyn.unsam.edu.ar/",
+          videoBtnText: "+Info"
+        }
+      },
+      {
+        type: "closing",
+        data: {
+          closingText: "Quedamos a tu disposición ante cualquier consulta y/o inquietud.<br><br>¡Esperamos que puedas sumarte!<br><br>Para información sobre posgrados, contactarse a nuestro WhatsApp."
+        }
+      },
+      {
+        type: "signature",
+        data: {
+          signatureImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1789657920/PIE_DE_PAGINA_lavzbp.jpg",
+          signatureImageAlt: "Secretaría de Posgrados - Escuela de Economía y Negocios - UNSAM"
+        }
+      },
+      {
+        type: "footer",
+        data: {
+          linkedinUrl: "https://ar.linkedin.com/company/eeyn-unsam",
+          instagramUrl: "https://www.instagram.com/eeyn_unsam",
+          twitterUrl: "https://x.com/eeyn_unsam",
+          webUrl: "https://unsam.edu.ar",
+          copyright: "&copy; 2026 Escuela de Economía y Negocios - UNSAM. Todos los derechos reservados."
+        }
+      }
+    ]
+  },
+
+  especializacion_turismo_cerrada: {
+    name: "Especialización en Economía y Desarrollo del Turismo - Inscripciones Cerradas",
+    emailTitle: "Especialización en Economía y Desarrollo del Turismo - EEyN UNSAM",
+    blocks: [] // will be loaded dynamically by copying especializacion_turismo_abierta and modifying the alert
+  },
+
   plantilla_para_todo_uso: {
     name: "Plantilla Genérica / Todo Uso",
     emailTitle: "Plantilla Genérica de Correo - UNSAM",
@@ -2001,6 +2137,15 @@ if (turismoAlertBlock) {
   turismoAlertBlock.data.alertTitle = "Estado de postulaciones";
   turismoAlertBlock.data.alertContent = "Actualmente las preinscripciones y postulaciones se encuentran <strong>cerradas</strong> (abrirán nuevamente en <strong>octubre de 2026</strong>). Podés aprovechar este lapso para reunir la documentación obligatoria detallada a continuación. La postulación se realiza enviando toda la documentación completa en un único archivo PDF a esta casilla de correo.";
 }
+
+DEFAULT_TEMPLATES.especializacion_turismo_cerrada.blocks = JSON.parse(JSON.stringify(DEFAULT_TEMPLATES.especializacion_turismo_abierta.blocks));
+const espTurismoAlertBlock = DEFAULT_TEMPLATES.especializacion_turismo_cerrada.blocks.find(b => b.type === "alert");
+if (espTurismoAlertBlock) {
+  espTurismoAlertBlock.data.alertType = "danger";
+  espTurismoAlertBlock.data.alertTitle = "Estado de postulaciones";
+  espTurismoAlertBlock.data.alertContent = "Actualmente las preinscripciones y postulaciones se encuentran <strong>cerradas</strong> (abrirán nuevamente del <strong>26/10/2026 al 11/12/2026</strong>). Podés aprovechar este lapso para reunir la documentación obligatoria detallada a continuación. La postulación se realiza enviando toda la documentación completa en un único archivo PDF a esta casilla de correo.";
+}
+
 
 
 
