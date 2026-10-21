@@ -2015,6 +2015,144 @@ Quedarán exceptuados de dicha legalización los documentos emitidos en países 
     blocks: [] // will be loaded dynamically by copying especializacion_turismo_abierta and modifying the alert
   },
 
+  especializacion_gfp_abierta: {
+    name: "Especialización en Gestión Financiera Pública - Inscripciones Abiertas",
+    emailTitle: "Especialización en Gestión Financiera Pública con Enfoque a Resultados - EEyN UNSAM",
+    blocks: [
+      {
+        type: "header",
+        data: {
+          headerImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1782495483/unnamed_sc5anc.jpg",
+          headerImageAlt: "Especialización en Gestión Financiera Pública con Enfoque a Resultados - EEyN UNSAM"
+        }
+      },
+      {
+        type: "intro",
+        data: {
+          saludo: "Estimada/o, nos alegra saber de su interés por la Especialización.",
+          introText: `Nos complace saber que nuestra <a href="https://www.unsam.edu.ar/escuelas/eeyn/700/economia/gestion-financiera-publica" target="_blank" rel="noopener noreferrer" style="color: #254194; font-weight: bold; text-decoration: underline;"><strong>Especialización en Gestión Financiera Pública con Enfoque a Resultados</strong></a> logró despertar un interés para continuar con tu formación académica.<br><br>A continuación te compartimos toda la información necesaria para que puedas efectuar tu postulación, consideramos esta crucial y valiosa para ayudarte a tomar una decisión informada sobre la continuidad de tus estudios.<br><br>La Especialización en Gestión Financiera Pública con enfoque a resultados busca contribuir a la formación de profesionales con capacidades para planificar y administrar los procesos claves de la gestión financiera pública en materia fiscal, presupuestaria y gerencial. Se propone brindar una mirada innovadora respecto del rol decisivo de la gestión financiera pública en el logro de los resultados de política.<br><br>Esta necesidad de innovar en las prácticas gerenciales obedece al doble desafío que enfrentan las administraciones gubernamentales. Por un lado, la necesidad de intervenir en nuevas problemáticas sociales, económicas y políticas y por otro lado, la necesidad de dar respuesta a una ciudadanía que amplía y profundiza la demanda de bienes y servicios públicos.`
+        }
+      },
+      {
+        type: "alert",
+        data: {
+          alertType: "success",
+          alertTitle: "Período de Postulación",
+          alertContent: "Las postulaciones se encontrarán abiertas en <strong>octubre de 2026</strong>. Para efectuar la postulación deberá enviar la documentación solicitada, en su conjunto y en formato PDF, a esta casilla de correo."
+        }
+      },
+      {
+        type: "generalInfo",
+        data: {
+          sectionTitle: "Información General y Cursada",
+          card1Label: "Duración y Modalidad",
+          card1Value: "4 Cuatrimestres",
+          card1Text: "La duración es de <strong>4 cuatrimestres (2 años)</strong>. La modalidad de cursada es <strong>presencial con parte de la carga virtual</strong>.",
+          card2Label: "Sede de Cursada",
+          card2Value: "Edificio Volta (UNSAM)",
+          card2Text: `<a href="https://www.google.com/maps/place/Unsam+Posgrados/@-34.6055625,-58.3784183,15z/data=!4m6!3m5!1s0x95bccace13e1d0cd:0x3d2442f10b919226!8m2!3d-34.6055625!4d-58.3784183!16s%2Fg%2F11b_02bj05?entry=ttu" target="_blank" rel="noopener noreferrer" style="color: #254194; text-decoration: underline;">Pres. Roque Sáenz Peña 832, piso 2, CABA. Escuela de Economía y Negocios.</a>`,
+          card3Label: "Esquema de Cursada Semanal (2 veces por semana)",
+          card3Bullet1: "<strong>Jueves:</strong> De 19:00 a 21:00 hs.",
+          card3Bullet2: "<strong>Sábados:</strong> De 9:00 a 13:00 hs.",
+          card3Footer: "* Se cursa dos veces por semana en modalidad presencial con parte de la carga virtual."
+        }
+      },
+      {
+        type: "targetAudience",
+        data: {
+          sectionTitle: "Condiciones de Admisión",
+          introText: "Está destinada a estudiantes que ya cuentan con un título de grado en los siguientes campos de formación:",
+          item1Title: "Campos Profesionales Destinatarios:",
+          item1Text: "Economía, Ciencias Sociales, Abogacía, Estadística, Ingeniería, con preferente experiencia en el sector público (no excluyente).",
+          item2Title: "Requisitos de Carga Horaria de Grado:",
+          item2Text: "Las carreras universitarias deben contar con un mínimo de <strong>4 años de duración y 2600 horas</strong> reloj.",
+          item3Title: "Otras Carreras Universitarias:",
+          item3Text: "Podrán solicitar la inscripción cumpliendo con el plazo de duración (4 años y 2600 horas), demostrándose además una actuación laboral en el área de las finanzas públicas comprobable no inferior a los 5 años, siendo las autoridades de la carrera quienes evaluarán la pertinencia de la inscripción.",
+          item4Title: "Títulos de Nivel Superior No Universitario:",
+          item4Text: "En caso de poseer un título oficial de carreras de nivel superior no universitario, siempre y cuando cumplan con los 4 años de duración y 2600 horas, la dirección de la carrera evaluará la solicitud de inscripción analizando el título y los antecedentes."
+        }
+      },
+      {
+        type: "admission",
+        data: {
+          sectionTitle: "Documentación Obligatoria",
+          admissionCondition: "Para efectuar la postulación deberá enviar la documentación solicitada, en su conjunto y en formato PDF, a esta casilla de correo:",
+          requirementsTitle: "Lista de Documentación a Presentar:",
+          doc1: "<strong>CV académico y profesional</strong> actualizado, que incluya una foto digital.",
+          doc2: "<strong>Ficha de preinscripción</strong> con el QR correspondiente. No se tomarán como válidas capturas de pantalla. Acceso en <a href='https://guarani3.unsam.edu.ar/preinscripcion/unsam/acceso' target='_blank' style='color: #254194; font-weight: bold; text-decoration: underline;'>SIU-Preinscripción</a>.",
+          doc3: "<strong>DNI</strong> (Frente y dorso).",
+          doc4: "<strong>Título de grado</strong> de 4 años o más (Frente y dorso).",
+          doc5: "<strong>Certificado analítico de grado</strong> (Frente y dorso).",
+          doc6: "<strong>Partida de Nacimiento</strong> (Frente y dorso).",
+          doc7: "<strong>Acreditar capacidad para leer y comprender textos editados en idioma inglés</strong> (en caso de no contar con un certificado, puede redactar una carta donde deje asentado su capacidad de lectocomprensión en dicho idioma).",
+          doc8: "<strong>Dos cartas de recomendación</strong> (Pueden ser del ámbito profesional y/o académico).",
+          extraInfoTitle: "En caso de título emitido por entidad extranjera:",
+          extraInfoText: `El diploma de grado y el certificado analítico, con la firma de la autoridad educacional del país de origen certificada en el consulado respectivo de la República Argentina y validada en el Ministerio de Relaciones Exteriores de la Nación. Asimismo deberá presentar la partida de nacimiento apostillada.<br><br>Quedarán exceptuados aquellos países que hayan suscripto al Convenio de La Haya, en cuyo caso deberán presentar la apostilla correspondiente.<br><br>En caso de que los documentos originales se encuentren redactados en idioma extranjero, deberá presentar una traducción de cada uno de ellos realizada por Traductor/a Público/a de Registro, y legalizada en el Colegio de Traductores Públicos (Av. Callao 289, Capital Federal).`
+        }
+      },
+      {
+        type: "tuition",
+        data: {
+          sectionTitle: "Aranceles y Medios de Pago",
+          residentTitle: "Postulantes Residentes",
+          residentCuotas: "20 Cuotas Mensuales",
+          residentMonto: "$300.000.-",
+          residentObs: "* Cuotas mensuales consecutivas.",
+          nonResidentTitle: "Extranjeras/os No Residentes",
+          nonResidentCuotas: "20 Cuotas Mensuales",
+          nonResidentMonto: "240 USD",
+          nonResidentObs: "* Cuotas mensuales consecutivas.",
+          discountText: "Existe un <strong>50% de descuento</strong> para miembros de la Comunidad UNSAM (egresados, docentes y no docentes de nuestra universidad).",
+          paymentText: "<strong>Las opciones de pago son:</strong> Transferencia bancaria, Rapipago, Red Link, Pago mis cuentas, Mercado Pago.<br><em>Los precios están sujetos a modificación.</em>"
+        }
+      },
+      {
+        type: "cta",
+        data: {
+          sectionTitle: "Charlas Informativas y Consultas",
+          charlaLabel: "Para notificarte de la próxima charla informativa deberás inscribirte:",
+          charlaUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeOFIgYiN4uoG3lNVX-ObqbHlOPtWrGgsz6AgwL90KUc5QftA/viewform",
+          charlaBtnText: "INSCRIBIRME AQUÍ",
+          whatsappLabel: "Contacto directo por WhatsApp / Consultas:",
+          whatsappUrl: "https://wa.me/541168083537",
+          whatsappBtnText: "WHATSAPP INFORMATIVO",
+          videoLabel: "Te compartimos más información sobre la propuesta académica:",
+          videoUrl: "https://eeyn.unsam.edu.ar/",
+          videoBtnText: "+Info"
+        }
+      },
+      {
+        type: "closing",
+        data: {
+          closingText: "Quedamos a tu disposición ante cualquier consulta y/o inquietud.<br><br>¡Esperamos que puedas sumarte!<br><br>Síguenos en nuestras redes:"
+        }
+      },
+      {
+        type: "signature",
+        data: {
+          signatureImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1789657920/PIE_DE_PAGINA_lavzbp.jpg",
+          signatureImageAlt: "Secretaría de Posgrados - Escuela de Economía y Negocios - UNSAM"
+        }
+      },
+      {
+        type: "footer",
+        data: {
+          linkedinUrl: "https://ar.linkedin.com/company/eeyn-unsam",
+          instagramUrl: "https://www.instagram.com/eeyn_unsam",
+          twitterUrl: "https://x.com/eeyn_unsam",
+          webUrl: "https://unsam.edu.ar",
+          copyright: "&copy; 2026 Escuela de Economía y Negocios - UNSAM. Todos los derechos reservados."
+        }
+      }
+    ]
+  },
+
+  especializacion_gfp_cerrada: {
+    name: "Especialización en Gestión Financiera Pública - Inscripciones Cerradas",
+    emailTitle: "Especialización en Gestión Financiera Pública con Enfoque a Resultados - EEyN UNSAM",
+    blocks: [] // will be loaded dynamically by copying especializacion_gfp_abierta and modifying the alert
+  },
+
   plantilla_para_todo_uso: {
     name: "Plantilla Genérica / Todo Uso",
     emailTitle: "Plantilla Genérica de Correo - UNSAM",
@@ -2145,6 +2283,15 @@ if (espTurismoAlertBlock) {
   espTurismoAlertBlock.data.alertTitle = "Estado de postulaciones";
   espTurismoAlertBlock.data.alertContent = "Actualmente las preinscripciones y postulaciones se encuentran <strong>cerradas</strong> (abrirán nuevamente del <strong>26/10/2026 al 11/12/2026</strong>). Podés aprovechar este lapso para reunir la documentación obligatoria detallada a continuación. La postulación se realiza enviando toda la documentación completa en un único archivo PDF a esta casilla de correo.";
 }
+
+DEFAULT_TEMPLATES.especializacion_gfp_cerrada.blocks = JSON.parse(JSON.stringify(DEFAULT_TEMPLATES.especializacion_gfp_abierta.blocks));
+const espGfpAlertBlock = DEFAULT_TEMPLATES.especializacion_gfp_cerrada.blocks.find(b => b.type === "alert");
+if (espGfpAlertBlock) {
+  espGfpAlertBlock.data.alertType = "danger";
+  espGfpAlertBlock.data.alertTitle = "Estado de postulaciones";
+  espGfpAlertBlock.data.alertContent = "Actualmente las preinscripciones y postulaciones se encuentran <strong>cerradas</strong> (abrirán nuevamente en <strong>octubre de 2026</strong>). Podés aprovechar este lapso para reunir la documentación obligatoria detallada a continuación. La postulación se realiza enviando toda la documentación completa en un único archivo PDF a esta casilla de correo.";
+}
+
 
 
 
