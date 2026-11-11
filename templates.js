@@ -2153,6 +2153,203 @@ Quedarán exceptuados de dicha legalización los documentos emitidos en países 
     blocks: [] // will be loaded dynamically by copying especializacion_gfp_abierta and modifying the alert
   },
 
+  maestria_bionegocios_abierta: {
+    name: "Maestría en Gestión de Bionegocios - Inscripciones Abiertas",
+    emailTitle: "Maestría en Gestión de Bionegocios - EEyN UNSAM",
+    blocks: [
+      {
+        type: "header",
+        data: {
+          headerImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1782495483/unnamed_sc5anc.jpg",
+          headerImageAlt: "Maestría en Gestión de Bionegocios - EEyN UNSAM"
+        }
+      },
+      {
+        type: "intro",
+        data: {
+          saludo: "Estimado/a:",
+          introText: `Nos complace saber que la <strong><a href="https://www.unsam.edu.ar/escuelas/eeyn" target="_blank" rel="noopener noreferrer" style="color: #254194; font-weight: bold; text-decoration: underline;">Maestría en Gestión de Bionegocios</a></strong> despertó un interés para continuar con tu formación académica. A continuación te compartimos toda la información necesaria para que puedas efectuar tu postulación.`
+        }
+      },
+      {
+        type: "alert",
+        data: {
+          alertType: "info",
+          alertTitle: "Inscripciones Próximamente",
+          alertContent: "El comienzo de la cursada está previsto para <strong>Agosto 2027</strong>. Para efectuar tu postulación, deberás enviar la documentación obligatoria detallada a continuación, en su conjunto y en formato PDF, respondiendo a esta casilla de correo."
+        }
+      },
+      {
+        type: "generalInfo",
+        data: {
+          sectionTitle: "Información General y Cursada",
+          card1Label: "Duración y Modalidad",
+          card1Value: "1 Año y medio - A distancia",
+          card1Text: "La cursada se desarrolla bajo modalidad a distancia, articulando <strong>550 horas</strong> de interacción pedagógica y <strong>2.450 horas</strong> de trabajo autónomo e investigación (3.000 horas totales equivalentes a 120 créditos).",
+          card2Label: "Sede / Entorno de Cursada",
+          card2Value: "Campus Virtual UNSAM",
+          card2Text: "Desarrollado integralmente dentro de la plataforma virtual SIED UNSAM para garantizar flexibilidad y conectividad remota.",
+          card3Label: "Esquema Horario",
+          card3Bullet1: "<strong>Modalidad A Distancia:</strong> Clases sincrónicas y actividades asincrónicas a través del entorno virtual de la universidad.",
+          card3Bullet2: "<strong>Flexibilidad pedagógica:</strong> Seguimiento continuo a través de la plataforma virtual con foros, talleres y material interactivo.",
+          card3Footer: "* Los horarios y el cronograma definitivo serán informados previo al inicio de la cursada y están sujetos a modificaciones."
+        }
+      },
+      {
+        type: "about",
+        data: {
+          sectionTitle: "Sobre la Carrera",
+          descriptionText: "La Maestría en Gestión de Bionegocios se presenta como una respuesta estratégica a las necesidades de formación de líderes en un sector con alto potencial transformador para la economía y sociedad. Desarrollada de manera conjunta entre la Escuela de Economía y Negocios (EEyN) y la Escuela de Bio y Nanotecnología (EByN) de la UNSAM, busca formar profesionales capaces de dirigir proyectos en la industria biotecnológica integrando conocimientos de biotecnología con habilidades de gestión empresarial, finanzas e innovación sostenible."
+        }
+      },
+      {
+        type: "admission",
+        data: {
+          sectionTitle: "Admisión y Documentación",
+          admissionCondition: "Podrán postularse graduados/as de carreras universitarias de grado (Lic. en Administración, Economía, Contador Público, Biotecnología, Ing. Industrial, Ing. en Agrobiotecnología o afines) con planes de estudio de no menos de 4 años de duración y 2.100 horas reloj de interacción pedagógica. Las excepciones previstas por la normativa vigente serán evaluadas individualmente por el Comité Académico y la Secretaría de Posgrados.",
+          requirementsTitle: "Lista de Documentación a Presentar:",
+          doc1: "<strong>CV académico y profesional</strong> actualizado, con foto digital integrada.",
+          doc2: "<strong>Ficha de preinscripción:</strong> No se admitirán capturas de pantalla de la misma. El trámite se inicia en el portal <a href='https://guarani3.unsam.edu.ar/preinscripcion/unsam/acceso' target='_blank' style='color: #254194; font-weight: bold; text-decoration: underline;'>SIU-Preinscripción</a>.",
+          doc3: "<strong>DNI</strong> legible (frente y dorso).",
+          doc4: "<strong>Título de grado</strong> legalizado de 4 años de duración o superior (frente y dorso).",
+          doc5: "<strong>Certificado analítico de grado</strong> sellado y firmado (frente y dorso).",
+          doc6: "<strong>Acreditación de inglés:</strong> constancia de capacidad de lectura y comprensión de textos en inglés. De no contar con un certificado, puede redactar una carta donde deje asentado su capacidad de lecto comprensión en dicho idioma.",
+          doc7: "<strong>Dos cartas de recomendación:</strong> debidamente firmadas. Pueden ser del ámbito académico y/o profesional.",
+          doc8: "<strong>Partida de Nacimiento</strong> legible. (Es válida la partida digital)",
+          extraInfoTitle: "Títulos obtenidos en el extranjero:",
+          extraInfoText: `El diploma de grado y el certificado analítico deberán contar con la firma de la autoridad educativa del país de origen, certificada por el Consulado de la República Argentina correspondiente y legalizada por el Ministerio de Relaciones Exteriores de la Nación. Quedarán exceptuados de dicha legalización los documentos emitidos en países adheridos al Convenio de La Haya, en cuyo caso, deberá presentarse la <strong>Apostilla de La Haya</strong> correspondiente.<br><br>En caso de que los documentos originales se encuentren redactados en idioma extranjero, deberá presentar una traducción de cada uno de ellos realizada por Traductor/a Público/a de Registro, y legalizada en el Colegio de Traductores Públicos (<a href='https://www.google.com/maps/place/Av.+Callao 289,+C1022+Cdad.+Aut%C3%B3noma+de+Buenos+Aires/@-34.6058605,-58.3918634,17z/data=!3m1!4b1!4m6!3m5!1s0x95bccac22c539783:0xa355d9479e995aa3!8m2!3d-34.6058605!4d-58.3918634!16s%2Fg%2F11mlcsr0_h?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D' target='_blank' rel='noopener noreferrer' style='color: #254194; text-decoration: underline;'>Av. Callao 289, Capital Federal</a>).`
+        }
+      },
+      {
+        type: "curriculum",
+        data: {
+          sectionTitle: "Plan de Estudio y Carga Horaria",
+          totalHoursText: "CARGA HORARIA TOTAL DE LA CARRERA:",
+          totalHoursValue: "3.000 hs (550 hs HIP)",
+          totalCreditsValue: "120 créditos",
+          areas: [
+            {
+              name: "Área Formativa: Gestión",
+              totalLabel: "Total Área Gestión:",
+              totalHours: "105 hs HIP (510 hs)",
+              totalCredits: "20,40",
+              subjects: [
+                { name: "Gestión Estratégica de los Bionegocios", duration: "1° Año", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" },
+                { name: "Liderazgo y Cultura Organizacional", duration: "1° Año", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" },
+                { name: "Gestión de Proyectos de Innovación", duration: "1° Año", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" }
+              ]
+            },
+            {
+              name: "Área Formativa: Finanzas",
+              totalLabel: "Total Área Finanzas:",
+              totalHours: "70 hs HIP (340 hs)",
+              totalCredits: "13,60",
+              subjects: [
+                { name: "Finanzas Corporativas y Valuación", duration: "1° Año", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" },
+                { name: "Modelos de Negocios en Biotecnología", duration: "1° Año", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" }
+              ]
+            },
+            {
+              name: "Área Formativa: Innovación y Biotecnología",
+              totalLabel: "Total Área Innovación y Biotecnología:",
+              totalHours: "105 hs HIP (510 hs)",
+              totalCredits: "20,40",
+              subjects: [
+                { name: "Inteligencia Estratégica y Gestión de la Propiedad Intelectual", duration: "1° Año", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" },
+                { name: "Tecnologías Emergentes", duration: "1° Año", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" },
+                { name: "Ética, Bioseguridad y Responsabilidad en Biotecnología", duration: "1° Año", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" }
+              ]
+            },
+            {
+              name: "Área Formativa: Formación Complementaria",
+              totalLabel: "Total Formación Complementaria:",
+              totalHours: "140 hs HIP (680 hs)",
+              totalCredits: "27,20",
+              subjects: [
+                { name: "Materia Optativa 1", duration: "2° Año", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" },
+                { name: "Materia Optativa 2", duration: "2° Año", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" },
+                { name: "Materia Optativa 3", duration: "2° Año", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" },
+                { name: "Materia Optativa 4", duration: "2° Año", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" }
+              ]
+            },
+            {
+              name: "Área Formativa: Práctica Profesional y Trabajo Final",
+              totalLabel: "Total Práctica Profesional y Trabajo Final:",
+              totalHours: "130 hs HIP (960 hs)",
+              totalCredits: "38,40",
+              subjects: [
+                { name: "Taller de Trabajo Final I", duration: "Taller", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" },
+                { name: "Taller de Trabajo Final II", duration: "Taller", weekly: "35 hs HIP", total: "170 hs", credits: "6.8" },
+                { name: "Taller de Práctica Profesional", duration: "Taller", weekly: "60 hs HIP", total: "245 hs", credits: "9.8" },
+                { name: "Elaboración de Trabajo Final de Maestría", duration: "Tesis / TF", weekly: "Autónomo", total: "375 hs", credits: "15.0" }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        type: "tuition",
+        data: {
+          sectionTitle: "Aranceles y Medios de Pago",
+          residentTitle: "Postulantes Residentes",
+          residentCuotas: "Cohorte Agosto 2027",
+          residentMonto: "A definir",
+          residentObs: "* Se informará oportunamente.",
+          nonResidentTitle: "Extranjeros No Residentes",
+          nonResidentCuotas: "Cohorte Agosto 2027",
+          nonResidentMonto: "A definir",
+          nonResidentObs: "* Se informará oportunamente.",
+          discountText: "<strong>Nota informativa:</strong> Los valores arancelarios para la cohorte Agosto 2027 aún no se encuentran definidos y serán informados con la apertura formal del período de preinscripción.<br><br><strong>Beneficio Comunidad UNSAM:</strong> Se prevén descuentos y aranceles preferenciales para miembros activos de la comunidad universitaria (egresados/as, docentes y nodocentes de UNSAM), así como convenios específicos institucionales.",
+          paymentText: "<strong>Medios de Pago:</strong> Las opciones de pago se procesarán a través de los sistemas oficiales habilitados por la universidad (sistema SIRO / transferencias / billeteras virtuales)."
+        }
+      },
+      {
+        type: "cta",
+        data: {
+          sectionTitle: "¿Deseás recibir asesoramiento o asistir a charlas?",
+          charlaLabel: "Notificaciones de la próxima charla:",
+          charlaUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeOFIgYiN4uoG3lNVX-ObqbHlOPtWrGgsz6AgwL90KUc5QftA/viewform",
+          charlaBtnText: "INSCRIBIRME AQUÍ",
+          whatsappLabel: "Contacto directo por mensajería:",
+          whatsappUrl: "https://wa.me/541168083537",
+          whatsappBtnText: "WHATSAPP INFORMATIVO",
+          videoLabel: "Más información sobre la Maestría en Gestión de Bionegocios:",
+          videoUrl: "https://eeyn.unsam.edu.ar/",
+          videoBtnText: "+Info"
+        }
+      },
+      {
+        type: "closing",
+        data: {
+          closingText: "Quedamos a tu entera disposición ante cualquier consulta y/o inquietud.<br><br>¡Esperamos que puedas sumarte!<br><br>Atentamente,<br><strong>Escuela de Economía y Negocios - UNSAM</strong>"
+        }
+      },
+      {
+        type: "signature",
+        data: {
+          signatureImageUrl: "https://res.cloudinary.com/dinnx4lo9/image/upload/v1789657920/PIE_DE_PAGINA_lavzbp.jpg",
+          signatureImageAlt: "Secretaría de Posgrados - Escuela de Economía y Negocios - UNSAM"
+        }
+      },
+      {
+        type: "footer",
+        data: {
+          linkedinUrl: "https://ar.linkedin.com/company/eeyn-unsam",
+          instagramUrl: "https://www.instagram.com/eeyn_unsam",
+          twitterUrl: "https://x.com/eeyn_unsam",
+          webUrl: "https://unsam.edu.ar",
+          copyright: "&copy; 2026 Escuela de Economía y Negocios - UNSAM. Todos los derechos reservados."
+        }
+      }
+    ]
+  },
+
+  maestria_bionegocios_cerrada: {
+    name: "Maestría en Gestión de Bionegocios - Inscripciones Cerradas",
+    emailTitle: "Maestría en Gestión de Bionegocios - EEyN UNSAM",
+    blocks: [] // will be loaded dynamically by copying maestria_bionegocios_abierta and modifying the alert
+  },
+
   plantilla_para_todo_uso: {
     name: "Plantilla Genérica / Todo Uso",
     emailTitle: "Plantilla Genérica de Correo - UNSAM",
@@ -2291,6 +2488,15 @@ if (espGfpAlertBlock) {
   espGfpAlertBlock.data.alertTitle = "Estado de postulaciones";
   espGfpAlertBlock.data.alertContent = "Actualmente las preinscripciones y postulaciones se encuentran <strong>cerradas</strong> (abrirán nuevamente en <strong>octubre de 2026</strong>). Podés aprovechar este lapso para reunir la documentación obligatoria detallada a continuación. La postulación se realiza enviando toda la documentación completa en un único archivo PDF a esta casilla de correo.";
 }
+
+DEFAULT_TEMPLATES.maestria_bionegocios_cerrada.blocks = JSON.parse(JSON.stringify(DEFAULT_TEMPLATES.maestria_bionegocios_abierta.blocks));
+const bioAlertBlock = DEFAULT_TEMPLATES.maestria_bionegocios_cerrada.blocks.find(b => b.type === "alert");
+if (bioAlertBlock) {
+  bioAlertBlock.data.alertType = "danger";
+  bioAlertBlock.data.alertTitle = "Estado de postulaciones";
+  bioAlertBlock.data.alertContent = "Actualmente las preinscripciones y postulaciones se encuentran <strong>cerradas</strong> (el comienzo de la cursada está previsto para <strong>Agosto de 2027</strong>). Podés aprovechar este lapso para reunir la documentación obligatoria detallada a continuación. La postulación se realiza enviando toda la documentación completa en un único archivo PDF a esta casilla de correo.";
+}
+
 
 
 
